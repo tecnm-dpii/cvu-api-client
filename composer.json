@@ -1,0 +1,17 @@
+{
+    "name": "tecnm-dpii/cvu-api-client",
+    "description": "Librer\u0000a cliente para la API de CVU-TecNM.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Francerz",
+            "email": "francerz@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TecNM_DPII\\CVU_API_Client\\": "src"
+        }
+    },
+    "require": {}
+}
