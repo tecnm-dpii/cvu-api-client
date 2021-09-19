@@ -57,6 +57,7 @@ class TnmApiClient
 		} elseif(is_array($config)) {
 			$this->config = array_merge($this->config, $config);
 		}
+		$this->loadEnvParameters();
 	}
 	public function __get($name)
 	{
@@ -79,6 +80,18 @@ class TnmApiClient
 			return $this->api_instances[$api_name];
 		} else {
 			return ($this->api_instances[$api_name] = new $api_name($this));
+		}
+	}
+	private function loadEnvParameters()
+	{
+		if (array_key_exists('TECNM_CVU_API_CLIENT_ID', $_ENV)) {
+			$this->setClientId($_ENV['TECNM_CVU_API_CLIENT_ID']);
+		}
+		if (array_key_exists('TECNM_CVU_API_CLIENT_SECRET', $_ENV)) {
+			$this->setClientSecret($_ENV['TECNM_CVU_API_CLIENT_SECRET']);
+		}
+		if (array_key_exists('TECNM_CVU_API_CALLBACK_URI', $_ENV)) {
+			$this->setRedirectUri($_ENV['TECNM_CVU_API_CALLBACK_URI']);
 		}
 	}
 	public function setAuthConfig($config)
