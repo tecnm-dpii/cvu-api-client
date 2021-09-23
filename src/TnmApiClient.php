@@ -63,13 +63,13 @@ class TnmApiClient
 	{
 		switch($name) {
 			case 'cvu':
-				return $this->getApiInstance('TnmCvuApiHub');
+				return $this->getApiInstance(TnmCvuApiHub::class);
 			case 'academica':
-				return $this->getApiInstance('TnmApiAcademica');
+				return $this->getApiInstance(TnmApiAcademica::class);
 			case 'catalogos':
-				return $this->getApiInstance('TnmApiCatalogos');
+				return $this->getApiInstance(TnmApiCatalogos::class);
 			case 'aplicacion':
-				return $this->getApiInstance('TnmApiAplicacion');
+				return $this->getApiInstance(TnmApiAplicacion::class);
 			default:
 				trigger_error("No existe servicio para {$name}");
 		}

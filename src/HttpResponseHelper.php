@@ -116,7 +116,7 @@ class HttpResponseHelper
 	}
 	public function getContent()
 	{
-		return $this->content;
+		return $this->content ?? '';
 	}
 	public function getBody()
 	{
