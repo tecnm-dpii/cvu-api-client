@@ -50,19 +50,20 @@ class TnmCvuApiHub extends TnmApiServiceBase
 	{
 		switch($name) {
 			case 'perfil':
-				return $this->getApiInstance('TnmCvuApiPerfil');
+				return $this->getApiInstance(TnmCvuApiPerfil::class);
 			case 'datos_laborales':
-				return $this->getApiInstance('TnmCvuApiDatosLaborales');
-			case 'formacion': case 'formacion_academica':
-				return $this->getApiInstance('TnmCvuApiFormacionAcademica');
+				return $this->getApiInstance(TnmCvuApiDatosLaborales::class);
+			case 'formacion':
+			case 'formacion_academica':
+				return $this->getApiInstance(TnmCvuApiFormacionAcademica::class);
 			case 'productividad':
-				return $this->getApiInstance('TnmCvuApiProductividad');
+				return $this->getApiInstance(TnmCvuApiProductividad::class);
 			case 'distinciones':
-				return $this->getApiInstance('TnmCvuApiDistinciones');
+				return $this->getApiInstance(TnmCvuApiDistinciones::class);
 			case 'conacyt':
-				return $this->getApiInstance('TnmCvuApiConacyt');
+				return $this->getApiInstance(TnmCvuApiConacyt::class);
 			case 'prodep':
-				return $this->getApiInstance('TnmCvuApiProdep');
+				return $this->getApiInstance(TnmCvuApiProdep::class);
 		}
 	}
 }
