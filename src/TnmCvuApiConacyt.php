@@ -109,11 +109,13 @@ class CVU_API_Conacyt_Registro extends TnmApiResourceBase
 	 *	Consulta adscripciones de la persona a TECNM
 	 *
 	 *	@param int $id_adscripcion Realiza la consulta de un único programa.
+	 *
+	 *  @return CVU_RegistroConacyt
 	 */
 	public function consultar()
 	{
 		$params = array();
-		return $this->call('consultar',array($params),'CVU_RegistroConacyt');
+		return $this->call('consultar',array($params), CVU_RegistroConacyt::class);
 	}
 }
 class CVU_RegistroConacyt extends TnmApiModelBase
@@ -150,11 +152,13 @@ class CVU_API_Conacyt_Sni extends TnmApiResourceBase
 	 *	Consulta adscripciones de la persona a TECNM
 	 *
 	 *	@param int $id_adscripcion Realiza la consulta de un único programa.
+	 *
+	 *  @return CVU_SnisConacyt
 	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('consultar',array($params),'CVU_SnisConacyt');
+		return $this->call('consultar',array($params), CVU_SnisConacyt::class);
 	}
 	/**
 	 *	Lista las adscripciones de la persona a TECNM
@@ -168,17 +172,18 @@ class CVU_API_Conacyt_Sni extends TnmApiResourceBase
 	 *		- boolean $unchecked:
 	 *			- Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
 	 *			por TECNM, es decir, no han pasado un proceso de validación.
+	 *	@return CVU_SnisConacyt
 	 */
 	public function listar($optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('listar',array($params),'CVU_SnisConacyt');
+		return $this->call('listar',array($params), CVU_SnisConacyt::class);
 	}
 }
 class CVU_SnisConacyt extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_SniConacyt';
+	protected $itemsType = CVU_SniConacyt::class;
 	protected $itemsDataType = 'array';
 }
 class CVU_SniConacyt extends TnmApiModelBase

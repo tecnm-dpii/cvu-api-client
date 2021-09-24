@@ -69,11 +69,14 @@ class TnmCvuApiHub extends TnmApiServiceBase
 }
 class CVU_API_Usuarios extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Usuario
+	 */
 	public function buscar($cvu_tecnm, $optParams = array())
 	{
 		$params = array('cvu_tecnm' => $cvu_tecnm);
 		$params = array_merge($params, $optParams);
-		return $this->call('buscar',array($params),'CVU_Usuario');
+		return $this->call('buscar',array($params), CVU_Usuario::class);
 	}
 }
 class CVU_Usuario extends TnmApiModelBase

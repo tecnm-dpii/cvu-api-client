@@ -2,6 +2,8 @@
 
 namespace TecNM_DPII\CVU_API_Client;
 
+use stdClass;
+
 class TnmApiAcademica extends TnmApiServiceBase
 {
 	public $programas;
@@ -293,11 +295,13 @@ class CVU_API_Academica_Programas extends TnmApiResourceBase
 	 *	Consulta programas registrados en TECNM
 	 *
 	 *	@param int $id_programa Realiza la consulta de un único programa.
+	 *
+	 * 	@return CVU_Programa
 	 */
 	public function consultarPorId($id_programa)
 	{
 		$params = array('id_programa' => $id_programa);
-		return $this->call('consultarPorId',array($params),'CVU_Programa');
+		return $this->call('consultarPorId',array($params),CVU_Programa::class);
 	}
 	/**
 	 *	Lista los programas registrados en TECNM
@@ -311,6 +315,7 @@ class CVU_API_Academica_Programas extends TnmApiResourceBase
 	 *		- boolean $posgrado: (ÚNICAMENTE CUANDO SE DEFINE)
 	 *			Si es VERDADERO recupera únicamente programas de posgrado.
 	 *			Si es FALSO recupera únicamente programas de Licenciatura.
+	 *	@return CVU_Programas
 	 */
 	public function consultar($optParams = array())
 	{
@@ -318,7 +323,7 @@ class CVU_API_Academica_Programas extends TnmApiResourceBase
 			$optParams['grados'] = implode(' ',$optParams['grados']);
 		}
 		$params = $optParams;
-		$collection = $this->call('consultar',array($params),'CVU_Programas');
+		$collection = $this->call('consultar',array($params), CVU_Programas::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
@@ -332,7 +337,7 @@ class CVU_API_Academica_Programas extends TnmApiResourceBase
 class CVU_Programas extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Programa';
+	protected $itemsType = CVU_Programa::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_programa';
 }
@@ -367,11 +372,12 @@ class CVU_API_Academica_LGACs extends TnmApiResourceBase
 	 *	Consulta una línea registrada en TECNM
 	 *
 	 *	@param int $id_lgac Realiza la consulta de una única línea.
+	 *  @return CVU_LGAC
 	 */
 	public function consultarPorId($id_lgac)
 	{
 		$params = array('id_lgac' => $id_lgac);
-		return $this->call('consultarPorId',array($params),'CVU_LGAC');
+		return $this->call('consultarPorId',array($params), CVU_LGAC::class);
 	}
 	/**
 	 *	Consulta el listado de líneas registradas en TECNM.
@@ -393,11 +399,12 @@ class CVU_API_Academica_LGACs extends TnmApiResourceBase
 	 *			registradas en el plantel con id especificado.
 	 *		- int $id_programa: Filtra las líneas a únicamente aquellas
 	 *			registradas en el programa con id especificado.
+	 *	@return CVU_LGACs
 	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		$collection = $this->call('consultar',array($params),'CVU_LGACs');
+		$collection = $this->call('consultar',array($params), CVU_LGACs::class);
 		if (isset($params['key-index']) && $params['key-index']) {
 			$collection->setKeyAsIndex();
 		}
@@ -411,7 +418,7 @@ class CVU_API_Academica_LGACs extends TnmApiResourceBase
 class CVU_LGACs extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_LGAC';
+	protected $itemsType = CVU_LGAC::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_lgac';
 }
@@ -462,15 +469,28 @@ class CVU_LGAC extends TnmApiCollectionBase
 
 class CVU_API_Academica_LGACs_v2 extends TnmApiResourceBase
 {
+	/**
+	 * Undocumented function
+	 *
+	 * @param int $id_lgac
+	 * @return CVU_LGAC_v2
+	 */
 	public function consultarPorId($id_lgac)
 	{
 		$params = array('id_lgac' => $id_lgac);
-		return $this->call('consultarPorId',array($params),'CVU_LGAC_v2');
+		return $this->call('consultarPorId',array($params), CVU_LGAC_v2::class);
 	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param array $optParams
+	 * @return CVU_LGACs_v2
+	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		$collection = $this->call('consultar',array($params),'CVU_LGACs_v2');
+		$collection = $this->call('consultar',array($params), CVU_LGACs_v2::class);
 		if (isset($params['key-index']) && $params['key-index']) {
 			$collection->setKeyAsIndex();
 		}
@@ -480,17 +500,18 @@ class CVU_API_Academica_LGACs_v2 extends TnmApiResourceBase
 	{
 		return $this->consultar($optParams);
 	}
+
 	public function colocar($id_lgac, $campos, $optParams = array())
 	{
 		$params = array_merge($optParams, $campos, ['id_lgac'=>$id_lgac]);
-		$this->call('colocar', array($params), 'stdClass');
+		$this->call('colocar', array($params), stdClass::class);
 		return;
 	}
 }
 class CVU_LGACs_v2 extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_LGAC_v2';
+	protected $itemsType = CVU_LGAC_v2::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_lgac';
 }

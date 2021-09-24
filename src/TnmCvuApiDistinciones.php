@@ -216,17 +216,21 @@ class TnmCvuApiDistinciones extends TnmApiServiceBase
 }
 class CVU_API_Distinciones_Certificaciones extends TnmApiResourceBase
 {
+	/**
+	 * @param array $optParams
+	 * @return CVU_Certificaciones
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_Certificaciones');
+		return $this->call('consultar',array($params), CVU_Certificaciones::class);
 	}
 }
 class CVU_Certificaciones extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Certificacion';
+	protected $itemsType = CVU_Certificacion::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_certificacion';
 }
@@ -240,17 +244,21 @@ class CVU_Certificacion extends TnmApiModelBase
 }
 class CVU_API_Distinciones_Colegios extends TnmApiResourceBase
 {
+	/**
+	 * @param array $optParams
+	 * @return CVU_Colegios
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_Colegios');
+		return $this->call('consultar',array($params), CVU_Colegios::class);
 	}
 }
 class CVU_Colegios extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Colegio';
+	protected $itemsType = CVU_Colegio::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_colegio';
 }
@@ -263,17 +271,20 @@ class CVU_Colegio extends TnmApiModelBase
 }
 class CVU_API_Distinciones_EDD extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_EDDs
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_EDDs');
+		return $this->call('consultar',array($params), CVU_EDDs::class);
 	}
 }
 class CVU_EDDs extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_EDD';
+	protected $itemsType = CVU_EDD::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_edd';
 }
@@ -285,17 +296,20 @@ class CVU_EDD extends TnmApiModelBase
 }
 class CVU_API_Premios extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Premios
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_Premios');
+		return $this->call('consultar',array($params), CVU_Premios::class);
 	}
 }
 class CVU_Premios extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Premio';
+	protected $itemsType = CVU_Premio::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_premio';
 }

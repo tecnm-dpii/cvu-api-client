@@ -211,12 +211,13 @@ class CVU_API_DatosLaborales_Adscripciones extends TnmApiResourceBase
 	/**
 	 *	Consulta adscripciones de la persona a TECNM
 	 *
-	 *	@param int $id_adscripcion Realiza la consulta de un único programa.
+	 *	@param int $id_adscripcion Realiza la consulta de una adscripción.
+	 *  @return CVU_Adscripcion
 	 */
 	public function consultarPorId($id_adscripcion)
 	{
 		$params = array('id_adscripcion' => $id_adscripcion);
-		return $this->call('consultar',array($params),'CVU_Adscripcion');
+		return $this->call('consultar',array($params), CVU_Adscripcion::class);
 	}
 	/**
 	 *	Lista las adscripciones de la persona a TECNM
@@ -230,22 +231,28 @@ class CVU_API_DatosLaborales_Adscripciones extends TnmApiResourceBase
 	 *		- boolean $unchecked:
 	 *			- Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
 	 *			por TECNM, es decir, no han pasado un proceso de validación.
+	 *
+	 *  @return CVU_Adscripciones
 	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('listar',array($params),'CVU_Adscripciones');
+		return $this->call('listar',array($params), CVU_Adscripciones::class);
 	}
+
+	/**
+	 * @return CVU_Adscripciones
+	 */
 	public function listar($optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('listar',array($params),'CVU_Adscripciones');
+		return $this->call('listar',array($params), CVU_Adscripciones::class);
 	}
 }
 class CVU_Adscripciones extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Adscripcion';
+	protected $itemsType = CVU_Adscripcion::class;
 	protected $itemsDataType = 'array';
 }
 class CVU_Adscripcion extends TnmApiModelBase
@@ -283,11 +290,12 @@ class CVU_API_DatosLaborales_Plazas extends TnmApiResourceBase
 	 *	Consulta adscripciones de la persona a TECNM
 	 *
 	 *	@param int $id_persona_plaza Realiza la consulta de un único programa.
+	 *	@return CVU_Plaza
 	 */
 	public function consultarPorId($id_persona_plaza)
 	{
 		$params = array('id_persona_plaza' => $id_persona_plaza);
-		return $this->call('consultar',array($params),'CVU_Plaza');
+		return $this->call('consultar',array($params), CVU_Plaza::class);
 	}
 	/**
 	 *	Lista las adscripciones de la persona a TECNM
@@ -301,22 +309,28 @@ class CVU_API_DatosLaborales_Plazas extends TnmApiResourceBase
 	 *		- boolean $unchecked:
 	 *			- Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
 	 *			por TECNM, es decir, no han pasado un proceso de validación.
+	 *
+	 *	@return CVU_Plazas
 	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('listar',array($params),'CVU_Plazas');
+		return $this->call('listar',array($params), CVU_Plazas::class);
 	}
+
+	/**
+	 * @return CVU_Plazas
+	 */
 	public function listar($optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('listar',array($params),'CVU_Plazas');
+		return $this->call('listar',array($params), CVU_Plazas::class);
 	}
 }
 class CVU_Plazas extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Plaza';
+	protected $itemsType = CVU_Plaza::class;
 	protected $itemsDataType = 'array';
 }
 class CVU_Plaza extends TnmApiCollectionBase
@@ -355,7 +369,7 @@ class CVU_Plaza extends TnmApiCollectionBase
 	}
 	public function esPTC()
 	{
-		if ($no_horas >= 40) {
+		if ($this->horas >= 40) {
 			return true;
 		}
 		return false;

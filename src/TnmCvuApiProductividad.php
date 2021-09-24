@@ -1218,17 +1218,20 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
 }
 class CVU_API_Productividad_Estancias extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Estancias
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params),'CVU_Estancias');
+		return $this->call('consultar',array($params), CVU_Estancias::class);
 	}
 }
 class CVU_Estancias extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Estancia';
+	protected $itemsType = CVU_Estancia::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_estancia';
 }
@@ -1375,45 +1378,59 @@ class CVU_Producto extends TnmApiModelBase
 }
 class CVU_API_Productividad extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Productos
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params),'CVU_Productos');
+		return $this->call('consultar',array($params), CVU_Productos::class);
 	}
+
+	/**
+	 * @return CVU_Producto
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_Producto');
+		return $this->call('consultarPorId',array($params), CVU_Producto::class);
 	}
 }
 class CVU_Productos extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Productos';
+	protected $itemsType = CVU_Productos::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
 class CVU_API_Productividad_Articulos extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Articulos
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params),'CVU_Articulos');
+		return $this->call('consultar', array($params), CVU_Articulos::class);
 	}
+
+	/**
+	 * @return CVU_Articulo
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_Articulo');
+		return $this->call('consultarPorId',array($params), CVU_Articulo::class);
 	}
 }
 class CVU_Articulos extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Articulo';
+	protected $itemsType = CVU_Articulo::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1432,23 +1449,30 @@ class CVU_Articulo extends CVU_Producto
 }
 class CVU_API_Productividad_Capitulos_Libro extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_CapitulosLibro
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params),'CVU_CapitulosLibro');
+		return $this->call('consultar',array($params), CVU_CapitulosLibro::class);
 	}
+
+	/**
+	 * @return CVU_CapituloLibro
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_CapituloLibro');
+		return $this->call('consultarPorId',array($params), CVU_CapituloLibro::class);
 	}
 }
 class CVU_CapitulosLibro extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_CapituloLibro';
+	protected $itemsType = CVU_CapituloLibro::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1463,23 +1487,29 @@ class CVU_CapituloLibro extends CVU_Producto
 }
 class CVU_API_Productividad_Libros extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Libros
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params,$optParams);
-		return $this->call('consultar',array($params),'CVU_Libros');
+		return $this->call('consultar',array($params), CVU_Libros::class);
 	}
+	/**
+	 * @return CVU_Libro
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_Libro');
+		return $this->call('consultarPorId',array($params), CVU_Libro::class);
 	}
 }
 class CVU_Libros extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Libro';
+	protected $itemsType = CVU_Libro::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1494,23 +1524,30 @@ class CVU_Libro extends CVU_Producto
 }
 class CVU_API_Productividad_Memorias extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Memorias
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params),'CVU_Memorias');
+		return $this->call('consultar',array($params), CVU_Memorias::class);
 	}
+
+	/**
+	 * @return CVU_Memoria
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_Memoria');
+		return $this->call('consultarPorId',array($params), CVU_Memoria::class);
 	}
 }
 class CVU_Memorias extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Memoria';
+	protected $itemsType = CVU_Memoria::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1526,23 +1563,30 @@ class CVU_Memoria extends CVU_Producto
 }
 class CVU_API_Productividad_Propiedades_Autorales extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_PropiedadesAutorales
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params,$optParams);
-		return $this->call('consultar',array($params),'CVU_PropiedadesAutorales');
+		return $this->call('consultar',array($params), CVU_PropiedadesAutorales::class);
 	}
+
+	/**
+	 * @return CVU_PropiedadAutoral
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_PropiedadAutoral');
+		return $this->call('consultarPorId',array($params), CVU_PropiedadAutoral::class);
 	}
 }
 class CVU_PropiedadesAutorales extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_PropiedadAutoral';
+	protected $itemsType = CVU_PropiedadAutoral::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1554,23 +1598,30 @@ class CVU_PropiedadAutoral extends CVU_Producto
 }
 class CVU_API_Productividad_Propiedades_Industriales extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_PropiedadesIndustriales
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params),'CVU_PropiedadesIndustriales');
+		return $this->call('consultar',array($params), CVU_PropiedadesIndustriales::class);
 	}
+
+	/**
+	 * @return CVU_PropiedadIndustrial
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_PropiedadIndustrial');
+		return $this->call('consultarPorId',array($params), CVU_PropiedadIndustrial::class);
 	}
 }
 class CVU_PropiedadesIndustriales extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_PropiedadIndustrial';
+	protected $itemsType = CVU_PropiedadIndustrial::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1586,23 +1637,30 @@ class CVU_PropiedadIndustrial extends CVU_Producto
 }
 class CVU_API_Productividad_Prototipos extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Prototipos
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_Prototipos');
+		return $this->call('consultar',array($params), CVU_Prototipos::class);
 	}
+
+	/**
+	 * @return CVU_Prototipo
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_Prototipo');
+		return $this->call('consultarPorId',array($params), CVU_Prototipo::class);
 	}
 }
 class CVU_Prototipos extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Prototipo';
+	protected $itemsType = CVU_Prototipo::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1616,23 +1674,30 @@ class CVU_Prototipo extends CVU_Producto
 }
 class CVU_API_Productividad_Tesis_Dirigidas extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_TesisDirigidas
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_TesisDirigidas');
+		return $this->call('consultar',array($params), CVU_TesisDirigidas::class);
 	}
+
+	/**
+	 * @return CVU_TesisDirigida
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_TesisDirigida');
+		return $this->call('consultarPorId',array($params), CVU_TesisDirigida::class);
 	}
 }
 class CVU_TesisDirigidas extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_TesisDirigida';
+	protected $itemsType = CVU_TesisDirigida::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_producto_acad';
 }
@@ -1645,23 +1710,30 @@ class CVU_TesisDirigida extends CVU_Producto
 }
 class CVU_API_Productividad_Otros extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_OtrosProductos
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_OtrosProductos');
+		return $this->call('consultar',array($params), CVU_OtrosProductos::class);
 	}
+
+	/**
+	 * @return CVU_OtroProducto
+	 */
 	public function consultarPorId($id_producto_acad, array $optParams = array())
 	{
 		$params = array('id_producto_acad'=>$id_producto_acad);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_OtroProducto');
+		return $this->call('consultarPorId',array($params), CVU_OtroProducto::class);
 	}
 }
 class CVU_OtrosProductos extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_OtroProducto';
+	protected $itemsType = CVU_OtroProducto::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKey = 'id_producto_acad';
 }

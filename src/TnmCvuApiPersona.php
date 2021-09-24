@@ -41,16 +41,13 @@ class TnmCvuApiPersona extends TnmApiServiceBase
 }
 class CVU_API_Datos_Personales extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Datos_Personales
+	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		// if (empty($params['cvu_tecnm'])) {
-		// 	$params['cvu_tecnm'] = 'yo';
-		// }
-		// if ($params['cvu_tecnm'] === 'yo') {
-		// 	$params['cvu_tecnm'] = $this->getService()->getClient()->getAccessToken()['cvu_tecnm'];
-		// }
-		return $this->call('consultar',array($params),'CVU_Datos_Personales');
+		return $this->call('consultar',array($params),CVU_Datos_Personales::class);
 	}
 }
 class CVU_Datos_Personales extends TnmApiModelBase

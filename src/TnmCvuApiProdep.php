@@ -227,16 +227,19 @@ class TnmCvuApiProdep extends TnmApiServiceBase
 }
 class CVU_API_Prodep_Areas extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_AreasProdep
+	 */
 	public function listar()
 	{
 		$params = array();
-		return $this->call('listar',array($params),'CVU_AreasProdep');
+		return $this->call('listar',array($params), CVU_AreasProdep::class);
 	}
 }
 class CVU_AreasProdep extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_AreaProdep';
+	protected $itemsType = CVU_AreaProdep::class;
 	protected $itemsDataType = 'array';
 }
 class CVU_AreaProdep extends TnmApiModelBase
@@ -258,11 +261,12 @@ class CVU_API_Prodep_Registro extends TnmApiResourceBase
 	 *	Consulta adscripciones de la persona a TECNM
 	 *
 	 *	@param int $id_adscripcion Realiza la consulta de un único programa.
+	 *  @return CVU_RegistroProdep
 	 */
 	public function consultar()
 	{
 		$params = array();
-		return $this->call('consultar',array($params),'CVU_RegistroProdep');
+		return $this->call('consultar',array($params), CVU_RegistroProdep::class);
 	}
 }
 class CVU_RegistroProdep extends TnmApiModelBase
@@ -279,11 +283,12 @@ class CVU_API_Prodep_PerfilDeseable extends TnmApiResourceBase
 	 *	Consulta adscripciones de la persona a TECNM
 	 *
 	 *	@param int $id_adscripcion Realiza la consulta de un único programa.
+	 *	@return CVU_PerfilesDeseablesProdep
 	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('consultar',array($params),'CVU_PerfilesDeseablesProdep');
+		return $this->call('consultar',array($params), CVU_PerfilesDeseablesProdep::class);
 	}
 	/**
 	 *	Lista las adscripciones de la persona a TECNM
@@ -297,17 +302,19 @@ class CVU_API_Prodep_PerfilDeseable extends TnmApiResourceBase
 	 *		- boolean $unchecked:
 	 *			- Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
 	 *			por TECNM, es decir, no han pasado un proceso de validación.
+	 *
+	 *	@return CVU_PerfilesDeseablesProdep
 	 */
 	public function listar($optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('listar',array($params),'CVU_PerfilesDeseablesProdep');
+		return $this->call('listar',array($params),CVU_PerfilesDeseablesProdep::class);
 	}
 }
 class CVU_PerfilesDeseablesProdep extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_PerfilDeseableProdep';
+	protected $itemsType = CVU_PerfilDeseableProdep::class;
 	protected $itemsDataType = 'array';
 }
 class CVU_PerfilDeseableProdep extends TnmApiModelBase
@@ -336,16 +343,19 @@ class CVU_PerfilDeseableProdep extends TnmApiModelBase
 }
 class CVU_API_Prodep_NivelesCuerpoAcademico extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_NivelesCuerpoAcademicoProdep
+	 */
 	public function listar(array $optParams = array())
 	{
 		$params = $optParams;
-		return $this->call('listar',array($params),'CVU_NivelesCuerpoAcademicoProdep');
+		return $this->call('listar',array($params), CVU_NivelesCuerpoAcademicoProdep::class);
 	}
 }
 class CVU_NivelesCuerpoAcademicoProdep extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_NivelCuerpoAcademicoProdep';
+	protected $itemsType = CVU_NivelCuerpoAcademicoProdep::class;
 	protected $itemsDataType = 'array';
 }
 class CVU_NivelCuerpoAcademicoProdep extends TnmApiModelBase
@@ -367,18 +377,23 @@ class CVU_API_Prodep_CuerposAcademicos extends TnmApiResourceBase
 	 *	Consulta adscripciones de la persona a TECNM
 	 *
 	 *	@param int $id_adscripcion Realiza la consulta de un único programa.
+	 *  @return CVU_CuerpoAcademicoProdep
 	 */
 	public function consultarPorId($id_cuerpo_academico, array $optParams = array())
 	{
 		$params = array('id_cuerpo_academico' => $id_cuerpo_academico);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_CuerpoAcademicoProdep');
+		return $this->call('consultarPorId',array($params), CVU_CuerpoAcademicoProdep::class);
 	}
+
+	/**
+	 * @return CVU_CuerpoAcademicoProdep
+	 */
 	public function consultarPorClave($clave_ca, array $optParams = array())
 	{
 		$params = array('clave_ca'=>$clave_ca);
 		$params = array_merge($params,$optParams);
-		return $this->call('consultarPorClave',array($params),'CVU_CuerpoAcademicoProdep');
+		return $this->call('consultarPorClave',array($params), CVU_CuerpoAcademicoProdep::class);
 	}
 	/**
 	 *	Lista las adscripciones de la persona a TECNM
@@ -392,12 +407,14 @@ class CVU_API_Prodep_CuerposAcademicos extends TnmApiResourceBase
 	 *		- boolean $unchecked:
 	 *			- Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
 	 *			por TECNM, es decir, no han pasado un proceso de validación.
+	 *
+	 *	@return CVU_CuerposAcademicosProdep
 	 */
 	public function consultar(array $optParams = array())
 	{
 		// $params = array('id_cuerpo_academico' => $id_cuerpo_academico);
 		$params = array_merge($optParams);
-		return $this->call('consultar',array($params),'CVU_CuerposAcademicosProdep');
+		return $this->call('consultar',array($params), CVU_CuerposAcademicosProdep::class);
 	}
 	public function listar(array $optParams = array())
 	{
@@ -407,7 +424,7 @@ class CVU_API_Prodep_CuerposAcademicos extends TnmApiResourceBase
 class CVU_CuerposAcademicosProdep extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_CuerpoAcademicoProdep';
+	protected $itemsType = CVU_CuerpoAcademicoProdep::class;
 	protected $itemsDataType = 'array';
 }
 class CVU_CuerpoAcademicoProdep extends TnmApiModelBase

@@ -120,11 +120,18 @@ class TnmApiAplicacion extends TnmApiServiceBase
 }
 class CVU_API_Aplicacion_Usuarios extends TnmApiResourceBase
 {
+	/**
+	 * Undocumented function
+	 *
+	 * @param [type] $cvu_tecnm
+	 * @param array $optParams
+	 * @return @CVU_Usuario
+	 */
 	public function buscar($cvu_tecnm, $optParams = array())
 	{
 		$params = array('cvu_tecnm' => $cvu_tecnm);
 		$params = array_merge($params, $optParams);
-		return $this->call('buscar',array($params),'CVU_Usuario');
+		return $this->call('buscar',array($params), CVU_Usuario::class);
 	}
 }
 class CVU_Usuario extends TnmApiModelBase
@@ -166,24 +173,26 @@ class CVU_API_Aplicacion_Mensajes extends TnmApiResourceBase
 	 *	"yo" puede utilizarse para referirse al usuario autenticado.
 	 *	@param Mensaje $mensaje El contenido del mensaje que se desea enviar al
 	 *	usuario de CVU.
+	 *  @return CVU_Mensaje_Aplicacion
 	 */
 	public function enviar($cvu_tecnm, CVU_Mensaje_Aplicacion $mensaje, $optParams = array())
 	{
 		$params = array('cvu_tecnm' => $cvu_tecnm, 'postBody' => $mensaje);
 		$params = array_merge($params, $optParams);
-		return $this->call('enviar',array($params),'CVU_Mensaje_Aplicacion');
+		return $this->call('enviar',array($params), CVU_Mensaje_Aplicacion::class);
 	}
 	/**
 	 *	Crea un nuevo mensaje para usuario de CVU.
 	 *
 	 *	@param string $id El ID generado por la base de datos para acceder al
 	 *	mensaje.
+	 *  @return CVU_Mensaje_Aplicacion  
 	 */
 	public function consultar($id, $optParams = array())
 	{
 		$params = array('id_mensaje' => $id);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params),'CVU_Mensaje_Aplicacion');
+		return $this->call('consultar',array($params), CVU_Mensaje_Aplicacion::class);
 	}
 }
 class CVU_Mensaje_Aplicacion extends TnmApiModelBase
@@ -235,6 +244,6 @@ class CVU_API_Aplicacion_Correos extends TnmApiResourceBase
 			'subject' => $asunto
 		);
 		$params = array_merge($params, $optParams);
-		return $this->call('enviar',array($params),null);
+		return $this->call('enviar',array($params), null);
 	}
 }

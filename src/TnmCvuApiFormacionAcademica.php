@@ -66,17 +66,20 @@ class TnmCvuApiFormacionAcademica extends TnmApiServiceBase
 }
 class CVU_API_FormacionAcademica_Estudios extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Estudios
+	 */
 	public function consultar(array $optParams = array())
 	{
 		$params = array();
 		$params = array_merge($params, $optParams);
-		return $this->call('consultar',array($params), 'CVU_Estudios');
+		return $this->call('consultar',array($params), CVU_Estudios::class);
 	}
 }
 class CVU_Estudios extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Estudio';
+	protected $itemsType = CVU_Estudio::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_estudio';
 }

@@ -427,20 +427,24 @@ class CVU_API_Catalogo_Tipos_Investigacion extends TnmApiResourceBase
 	{
 		// $params = array('id' => $id);
 		$params = $optParams;
-		return $this->call('consultar',array($params),'CVU_Tipos_Investigacion');
+		return $this->call('consultar',array($params), CVU_Tipos_Investigacion::class);
 	}
+
+	/**
+	 * @return CVU_Tipo_Investigacion
+	 */
 	public function consultarPorId($id = null, $optParams = array())
 	{
 		$params = array('id' => $id);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPorId',array($params),'CVU_Tipo_Investigacion');
+		return $this->call('consultarPorId',array($params), CVU_Tipo_Investigacion::class);
 
 	}
 }
 class CVU_Tipos_Investigacion extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Tipo_Investigacion';
+	protected $itemsType = CVU_Tipo_Investigacion::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_tipo_investigacion';
 }
@@ -451,26 +455,33 @@ class CVU_Tipo_Investigacion extends TnmApiModelBase
 }
 class CVU_API_Catalogo_Areas_Conocimiento extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Areas_Conocimiento
+	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		$collection = $this->call('consultar',array($params), 'CVU_Areas_Conocimiento');
+		$collection = $this->call('consultar',array($params), CVU_Areas_Conocimiento::class);
 		if (isset($params['key-index']) && $params['key-index']) {
 			$collection->setKeyAsIndex();
 		}
 		return $collection;
 	}
+
+	/**
+	 * @return CVU_Area_Conocimiento
+	 */
 	public function consultarPorId($id, $optParams = array())
 	{
 		$params = array('id' => $id);
 		$params = array_merge($params,$optParams);
-		return $this->call('consultarPorId',array($params), 'CVU_Area_Conocimiento');
+		return $this->call('consultarPorId',array($params), CVU_Area_Conocimiento::class);
 	}
 }
 class CVU_Areas_Conocimiento extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Tipo_Investigacion';
+	protected $itemsType = CVU_Tipo_Investigacion::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_area_conocimiento';
 }
@@ -481,10 +492,13 @@ class CVU_Area_Conocimiento extends TnmApiModelBase
 }
 class CVU_API_Catalogo_Instituciones extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Instituciones
+	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		$collection = $this->call('consultar',array($params),'CVU_Instituciones');
+		$collection = $this->call('consultar',array($params), CVU_Instituciones::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
@@ -494,19 +508,23 @@ class CVU_API_Catalogo_Instituciones extends TnmApiResourceBase
 	{
 		return $this->consultar($optParams);
 	}
+
+	/**
+	 * @return CVU_Institucion
+	 */
 	public function consultarPorId($id, $optParams = array())
 	{
 		$params = array('id' => $id);
 		$params = array_merge($params, $optParams);
 		// var_dump($params);
 		// exit;
-		return $this->call('consultarPorId', array($params), 'CVU_Institucion');
+		return $this->call('consultarPorId', array($params), CVU_Institucion::class);
 	}
 }
 class CVU_Instituciones extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Institucion';
+	protected $itemsType = CVU_Institucion::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_institucion';
 }
@@ -518,10 +536,13 @@ class CVU_Institucion extends TnmApiModelBase
 }
 class CVU_API_Catalogo_Unidades_Organicas extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Unidades_Organicas
+	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		$collection = $this->call('consultar',array($params),'CVU_Unidades_Organicas');
+		$collection = $this->call('consultar',array($params), CVU_Unidades_Organicas::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
@@ -531,19 +552,22 @@ class CVU_API_Catalogo_Unidades_Organicas extends TnmApiResourceBase
 	{
 		return $this->consultar($optParams);
 	}
+	/**
+	 * @return CVU_Unidad_Organica
+	 */
 	public function consultarPorId($id, $optParams = array())
 	{
 		$params = array('id' => $id);
 		$params = array_merge($params, $optParams);
 		// var_dump($params);
 		// exit;
-		return $this->call('consultarPorId', array($params), 'CVU_Unidad_Organica');
+		return $this->call('consultarPorId', array($params), CVU_Unidad_Organica::class);
 	}
 }
 class CVU_Unidades_Organicas extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Unidad_Organica';
+	protected $itemsType = CVU_Unidad_Organica::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_unidad_organica';
 }
@@ -554,10 +578,13 @@ class CVU_Unidad_Organica extends TnmApiModelBase
 }
 class CVU_API_Catalogo_Puestos extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Puestos
+	 */
 	public function consultar($optParams = array())
 	{
 		$params = $optParams;
-		$collection = $this->call('consultar',array($params),'CVU_Puestos');
+		$collection = $this->call('consultar',array($params), CVU_Puestos::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
@@ -567,19 +594,22 @@ class CVU_API_Catalogo_Puestos extends TnmApiResourceBase
 	{
 		return $this->consultar($optParams);
 	}
+	/**
+	 * @return CVU_Puesto 
+	 */
 	public function consultarPorId($id, $optParams = array())
 	{
 		$params = array('id' => $id);
 		$params = array_merge($params, $optParams);
 		// var_dump($params);
 		// exit;
-		return $this->call('consultarPorId', array($params), 'CVU_Puesto');
+		return $this->call('consultarPorId', array($params), CVU_Puesto::class);
 	}
 }
 class CVU_Puestos extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Puesto';
+	protected $itemsType = CVU_Puesto::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'id_puesto';
 }
@@ -590,6 +620,9 @@ class CVU_Puesto extends TnmApiModelBase
 }
 class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
 {
+	/**
+	 * @return CVU_Clasificador_Capitulos
+	 */
 	public function consultarCapitulos($optParams = array())
 	{
 		$params = $optParams;
@@ -621,18 +654,26 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
 				$params['partidas-especificas'] = $params['partidas-especificas'];
 			}
 		}
-		$collection = $this->call('consultarCapitulos',array($params),'CVU_Clasificador_Capitulos');
+		$collection = $this->call('consultarCapitulos',array($params), CVU_Clasificador_Capitulos::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
 		return $collection;
 	}
+	
+	/**
+	 * @return CVU_Clasificador_Capitulo
+	 */
 	public function consultarCapitulo($num = null, $optParams = array())
 	{
 		$params = array('num' => $num);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarCapitulo',array($params),'CVU_Clasificador_Capitulo');
+		return $this->call('consultarCapitulo',array($params), CVU_Clasificador_Capitulo::class);
 	}
+
+	/**
+	 * @return CVU_Clasificador_Conceptos
+	 */
 	public function consultarConceptos($optParams = array())
 	{
 		$params = $optParams;
@@ -664,18 +705,26 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
 				$params['partidas-especificas'] = $params['partidas-especificas'];
 			}
 		}
-		$collection = $this->call('consultarConceptos',array($params),'CVU_Clasificador_Conceptos');
+		$collection = $this->call('consultarConceptos',array($params), CVU_Clasificador_Conceptos::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
 		return $collection;
 	}
+
+	/**
+	 * @return CVU_Clasificador_Concepto
+	 */
 	public function consultarConcepto($num = null, $optParams = array())
 	{
 		$params = array('num' => $num);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarConcepto',array($params),'CVU_Clasificador_Concepto');
+		return $this->call('consultarConcepto',array($params), CVU_Clasificador_Concepto::class);
 	}
+
+	/**
+	 * @return CVU_Clasificador_Partidas_Genericas
+	 */
 	public function consultarPartidasGenericas($optParams = array())
 	{
 		$params = $optParams;
@@ -707,18 +756,26 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
 				$params['partidas-especificas'] = $params['partidas-especificas'];
 			}
 		}
-		$collection = $this->call('consultarPartidasGenericas',array($params),'CVU_Clasificador_Partidas_Genericas');
+		$collection = $this->call('consultarPartidasGenericas',array($params), CVU_Clasificador_Partidas_Genericas::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
 		return $collection;
 	}
+
+	/**
+	 * @return CVU_Clasificador_Partida_Generica
+	 */
 	public function consultarPartidaGenerica($num = null, $optParams = array())
 	{
 		$params = array('num' => $num);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPartidaGenerica',array($params),'CVU_Clasificador_Partida_Generica');
+		return $this->call('consultarPartidaGenerica',array($params), CVU_Clasificador_Partida_Generica::class);
 	}
+
+	/**
+	 * @return CVU_Clasificador_Partidas_Especificas
+	 */
 	public function consultarPartidasEspecificas($optParams = array())
 	{
 		$params = $optParams;
@@ -750,17 +807,20 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
 				$params['partidas-especificas'] = $params['partidas-especificas'];
 			}
 		}
-		$collection = $this->call('consultarPartidasEspecificas',array($params),'CVU_Clasificador_Partidas_Especificas');
+		$collection = $this->call('consultarPartidasEspecificas',array($params), CVU_Clasificador_Partidas_Especificas::class);
 		if (isset($optParams['key-index']) && $optParams['key-index']) {
 			$collection->setKeyAsIndex();
 		}
 		return $collection;
 	}
+	/**
+	 * @return CVU_Clasificador_Partida_Especifica
+	 */
 	public function consultarPartidaEspecifica($num = null, $optParams = array())
 	{
 		$params = array('num' => $num);
 		$params = array_merge($params, $optParams);
-		return $this->call('consultarPartidaEspecifica',array($params),'CVU_Clasificador_Partida_Especifica');
+		return $this->call('consultarPartidaEspecifica',array($params),CVU_Clasificador_Partida_Especifica::class);
 	}
 }
 class CvuClasificadorModelBase extends TnmApiModelBase
@@ -770,7 +830,7 @@ class CvuClasificadorModelBase extends TnmApiModelBase
 class CVU_Clasificador_Capitulos extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Clasificador_Capitulo';
+	protected $itemsType = CVU_Clasificador_Capitulo::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'num_capitulo';
 }
@@ -781,7 +841,7 @@ class CVU_Clasificador_Capitulo extends CvuClasificadorModelBase
 class CVU_Clasificador_Conceptos extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Clasificador_Conceptos';
+	protected $itemsType = CVU_Clasificador_Conceptos::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'num_concepto';
 }
@@ -792,18 +852,18 @@ class CVU_Clasificador_Concepto extends CvuClasificadorModelBase
 class CVU_Clasificador_Partidas_Genericas extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Clasificador_Partida_Generica';
+	protected $itemsType = CVU_Clasificador_Partida_Generica::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'num_partida_generica';
 }
 class CVU_Clasificador_Partida_Generica extends CvuClasificadorModelBase
 {
-	protected $partidas_especificasType = 'CVU_Clasificador_Partida_Especifica';
+	protected $partidas_especificasType = CVU_Clasificador_Partida_Especifica::class;
 }
 class CVU_Clasificador_Partidas_Especificas extends TnmApiCollectionBase
 {
 	protected $collection_key = 'items';
-	protected $itemsType = 'CVU_Clasificador_Partida_Especifica';
+	protected $itemsType = CVU_Clasificador_Partida_Especifica::class;
 	protected $itemsDataType = 'array';
 	protected $itemsKeyName = 'num_partida_especifica';
 }
