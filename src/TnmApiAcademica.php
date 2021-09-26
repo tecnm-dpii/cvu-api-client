@@ -8,6 +8,7 @@ class TnmApiAcademica extends TnmApiServiceBase
 {
 	public $programas;
 	public $lgacs;
+	public $lgacs2;
 
 	public function __construct(TnmApiClient $client)
 	{
