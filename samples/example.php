@@ -15,7 +15,7 @@ $programas = $client->academica->programas->consultar();
 // Obtener con parámetros opcionales
 $programas = $client->academica->programas->consultar(array(
     'id_grado' => 1,        // programa con id_grado = 1
-    'grados' => [1,2,3],    // programa con id_grado 1, 2 o 3
+    'grados' => [1, 2, 3],    // programa con id_grado 1, 2 o 3
     'grado' => 'Maestría',  // programa de grado Maestría
     'posgrado' => true,     // programa que sea de nivel posgrado
     'posgrado' => false,    // programa que no sea posgrado
@@ -89,19 +89,19 @@ $mensajes = $client->aplicacion->mensajes->listar(array(
 $usuario = $client->aplicacion->usuarios->buscar('IT15A001');
 
 // Consultar todos los tipos con parámetros opcionales
-$tipos_investigacion = $client->catalogos->tipos_investigacion->consultar(['key-index'=>true]);
+$tipos_investigacion = $client->catalogos->tipos_investigacion->consultar(['key-index' => true]);
 // Consultar el tipo de investigación con ID 4
 $tipo_investigacion = $client->catalogos->tipos_investigacion->consultarPorId(4);
 
 // Consultar todas las áreas de conocimiento con parámetros opcionales
-$areas_conocimiento = $client->catalogos->areas_conocimiento->consultar(['key-index'=>true]);
+$areas_conocimiento = $client->catalogos->areas_conocimiento->consultar(['key-index' => true]);
 // Consultar el área de conocimiento con ID 2
 $area_conocimiento = $client->catalogos->areas_conocimiento->consultarPorId(2);
 
 // Consultar todas las instituciones con parámetros opcionales
 $instituciones = $client->catalogos->instituciones->consultar(array(
     'order-by' => 'nombre', // Ordena las instituciones por nombre
-    'sin-id' => [32,54],    // Omite las instituciones que tengan los ID 32 y 54
+    'sin-id' => [32, 54],    // Omite las instituciones que tengan los ID 32 y 54
     'key-index' => true     // Coloca el ID de la institución como clave en el arreglo resultado
 ));
 // Consultar las instituciones con ID 22
@@ -152,7 +152,7 @@ $auth_uri = $client
 
 ?>
 
-<a href='<?=$auth_uri?>'>Acceder a CVU-TecNM</a>
+<a href='<?= $auth_uri ?>'>Acceder a CVU-TecNM</a>
 
 <?php
 
@@ -209,7 +209,7 @@ $client->cvu->datos_laborales->plazas->consultar(array(
     'vigente' => true, // Traer plazas que se encuentren vigentes
     'vigente' => false, // Traer plazas cuando ya no estén vigentes
     'clave_movimiento' => 10, // Cuando el tipo de movimiento (alta) sea 10
-    'clave_movimiento' => [10,95], // Cuando el tipo de movimiento sea 10 o 95
+    'clave_movimiento' => [10, 95], // Cuando el tipo de movimiento sea 10 o 95
     'cvu_modificado_hasta' => '2017-05-31', // Cuando la última modificación sea igual o anterior a 31 de mayo de 2018
     'unchecked' => true, // Para obtener registros cuando no han sido validados por el TecNM.
 ));
