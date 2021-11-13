@@ -4,11 +4,11 @@ namespace TecNM_DPII\CVU_API_Client;
 
 class HttpRequestHelper
 {
-    const METHOD_UNKNOWN = 0;
-    const METHOD_GET	= 'GET';
-    const METHOD_POST	= 'POST';
-    const METHOD_PUT	= 'PUT';
-    const METHOD_DELETE = 'DELETE';
+    public const METHOD_UNKNOWN = 0;
+    public const METHOD_GET    = 'GET';
+    public const METHOD_POST   = 'POST';
+    public const METHOD_PUT    = 'PUT';
+    public const METHOD_DELETE = 'DELETE';
 
     private $method;
     private $protocol;
@@ -47,11 +47,11 @@ class HttpRequestHelper
     }
     private function loadCurrentRequest()
     {
-        $this->baseUrl	= rtrim('http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}", '/');
-        $this->headers	= getallheaders();
-        $this->query	= $_SERVER['QUERY_STRING'];
-        $this->body		= @file_get_contents('php://input');
-        $this->port		= $_SERVER['SERVER_PORT'];
+        $this->baseUrl  = rtrim('http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}", '/');
+        $this->headers  = getallheaders();
+        $this->query    = $_SERVER['QUERY_STRING'];
+        $this->body     = @file_get_contents('php://input');
+        $this->port     = $_SERVER['SERVER_PORT'];
 
         $this->queryVars = array();
         if (!empty($this->query)) {
@@ -171,7 +171,7 @@ class HttpRequestHelper
         return $this->query;
     }
     /**
-     *	@deprecated
+     * @deprecated
      */
     public function getGet($name)
     {
@@ -188,7 +188,7 @@ class HttpRequestHelper
         }
     }
     /**
-     *	@deprecated
+     * @deprecated
      */
     public function setGet($name, $value = null)
     {
@@ -207,7 +207,7 @@ class HttpRequestHelper
         }
     }
     /**
-     *	@deprecated
+     * @deprecated
      */
     public function setData($name, $value = null)
     {
@@ -226,7 +226,7 @@ class HttpRequestHelper
         }
     }
     /**
-     *	@deprecated
+     * @deprecated
      */
     public function getData($name)
     {
@@ -287,8 +287,8 @@ class HttpRequestHelper
         if (!empty($this->bodyVars)) {
             $this->body = http_build_query($this->bodyVars);
             curl_setopt_array($ch, array(
-                CURLOPT_POST		=> count($this->bodyVars),
-                CURLOPT_POSTFIELDS	=> $this->body
+                CURLOPT_POST        => count($this->bodyVars),
+                CURLOPT_POSTFIELDS  => $this->body
             ));
         }
 

@@ -4,33 +4,33 @@ namespace TecNM_DPII\CVU_API_Client;
 
 class HttpResponseHelper
 {
-    const STATUS_CONTINYE = 100;
-    const STATUS_SWITCHING_PROTOCOLS = 101;
-    const STATUS_OK = 200;
-    const STATUS_CREATED = 201;
-    const STATUS_ACCEPTED = 202;
-    const STATUS_NON_AUTHORITATIVE_INFORMATION = 203;
-    const STATUS_NO_CONTENT = 204;
-    const STATUS_RESET_CONTENT = 205;
-    const STATUS_PARTIAL_CONTENT = 206;
-    const STATUS_MULTIPLE_CHOICES = 300;
-    const STATUS_MOVED_PERMANENTLY = 301;
-    const STATUS_FOUND = 302;
-    const STATUS_SEE_OTHER = 303;
-    const STATUS_NOT_MODIFIED = 304;
-    const STATUS_USE_PROXY = 305;
-    const STATUS_TEMPORARY_REDIRECT = 307;
-    const STATUS_BAD_REQUEST = 400;
-    const STATUS_UNAUTHORIZED = 401;
-    const STATUS_PAYMENT_REQUIRED = 402;
-    const STATUS_FORBIDDEN = 403;
-    const STATUS_NOT_FOUND = 404;
-    const STATUS_METHOD_NOT_ALLOWED = 405;
-    const STATUS_NOT_ACCEPTABLE = 406;
-    const STATUS_CONFLICT = 409;
-    const STATUS_INTERNAL_SERVER_ERROR = 500;
-    const STATUS_NOT_IMPLEMENTED = 501;
-    const STATUS_SERVICE_UNAVAILABLE = 503;
+    public const STATUS_CONTINYE = 100;
+    public const STATUS_SWITCHING_PROTOCOLS = 101;
+    public const STATUS_OK = 200;
+    public const STATUS_CREATED = 201;
+    public const STATUS_ACCEPTED = 202;
+    public const STATUS_NON_AUTHORITATIVE_INFORMATION = 203;
+    public const STATUS_NO_CONTENT = 204;
+    public const STATUS_RESET_CONTENT = 205;
+    public const STATUS_PARTIAL_CONTENT = 206;
+    public const STATUS_MULTIPLE_CHOICES = 300;
+    public const STATUS_MOVED_PERMANENTLY = 301;
+    public const STATUS_FOUND = 302;
+    public const STATUS_SEE_OTHER = 303;
+    public const STATUS_NOT_MODIFIED = 304;
+    public const STATUS_USE_PROXY = 305;
+    public const STATUS_TEMPORARY_REDIRECT = 307;
+    public const STATUS_BAD_REQUEST = 400;
+    public const STATUS_UNAUTHORIZED = 401;
+    public const STATUS_PAYMENT_REQUIRED = 402;
+    public const STATUS_FORBIDDEN = 403;
+    public const STATUS_NOT_FOUND = 404;
+    public const STATUS_METHOD_NOT_ALLOWED = 405;
+    public const STATUS_NOT_ACCEPTABLE = 406;
+    public const STATUS_CONFLICT = 409;
+    public const STATUS_INTERNAL_SERVER_ERROR = 500;
+    public const STATUS_NOT_IMPLEMENTED = 501;
+    public const STATUS_SERVICE_UNAVAILABLE = 503;
 
 
     private $statusCode;
@@ -48,15 +48,15 @@ class HttpResponseHelper
     {
         $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        $header_size	= curl_getinfo($curl, CURLINFO_HEADER_SIZE);
-        $header_space	= trim(substr($curl_response, 0, $header_size));
-        $content		= substr($curl_response, $header_size);
+        $header_size    = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+        $header_space   = trim(substr($curl_response, 0, $header_size));
+        $content        = substr($curl_response, $header_size);
 
-        $headers = explode("\r\n",$header_space);
+        $headers = explode("\r\n", $header_space);
         $headers_len = count($headers);
         $header_list = array();
         for ($i = 2; $i < $headers_len; $i++) {
-            list($header, $h_content) = explode(":",$headers[$i]);
+            list($header, $h_content) = explode(":", $headers[$i]);
             $header_list[$header] = trim($h_content);
         }
 
@@ -87,9 +87,9 @@ class HttpResponseHelper
     public function setHeader($name, $content = null)
     {
         if (is_null($content)) {
-            $colon_pos = strpos($name,':');
-            $content = trim(substr($name,$colon_pos+1));
-            $name = trim(substr($name,0,$colon_pos));
+            $colon_pos = strpos($name, ':');
+            $content = trim(substr($name, $colon_pos + 1));
+            $name = trim(substr($name, 0, $colon_pos));
         }
         // echo "{$name} - {$content}<br/>";
         $this->headers[$name] = $content;
@@ -132,11 +132,11 @@ class HttpResponseHelper
         }
         // SEND THE RESPONSE HEADERS
         if (function_exists('php_header')) {
-            foreach($this->headers as $header => &$content) {
+            foreach ($this->headers as $header => &$content) {
                 header("{$header}: {$content}");
             }
         } else {
-            foreach($this->headers as $header => &$content) {
+            foreach ($this->headers as $header => &$content) {
                 header("{$header}: {$content}");
             }
         }

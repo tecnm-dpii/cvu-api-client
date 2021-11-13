@@ -23,11 +23,11 @@ class TnmCvuApiProdep extends TnmApiServiceBase
             'registro',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'registro/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array()
+                    'consultar' => array(
+                        'path'      => 'registro/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array()
                     ),
                 )
             )
@@ -37,66 +37,66 @@ class TnmCvuApiProdep extends TnmApiServiceBase
             $this->serviceName,
             'perfil_deseable',
             array(
-                'methods' =>array(
+                'methods' => array(
                     'consultar' => array(
-                        'path'		=> 'perfil_deseable/{id_perfil_deseable}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'id_perfil_deseable'=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                        'path'      => 'perfil_deseable/{id_perfil_deseable}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'id_perfil_deseable' => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'listar'	=> array(
-                        'path'		=> 'perfil_deseable/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'listar'    => array(
+                        'path'      => 'perfil_deseable/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             'vigente_en' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'cvu_modificado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'cvu_modificado_hasta'  => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false,
                             )
                         )
                     )
@@ -109,84 +109,84 @@ class TnmCvuApiProdep extends TnmApiServiceBase
             'cuerpos_academicos',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'cuerpos_academicos/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'vigente_en'=>array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                    'consultar' => array(
+                        'path'      => 'cuerpos_academicos/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array(
+                            'vigente_en' => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'institucion'=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'institucion' => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'id_nivel'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_nivel'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'miembro'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'miembro'   => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'responsable'=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'responsable' => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'colaborador'=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'colaborador' => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'cvu_modificado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'cvu_modificado_hasta'  => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false,
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'		=> 'cuerpos_academicos/{id_cuerpo_academico}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'id_cuerpo_academico'	=>array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true,
+                    'consultarPorId'    => array(
+                        'path'      => 'cuerpos_academicos/{id_cuerpo_academico}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array(
+                            'id_cuerpo_academico'   => array(
+                                'location'  => 'path',
+                                'type'      => 'string',
+                                'required'  => true,
                             ),
-                            'cvu_miembros'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                            'cvu_miembros'  => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false,
                             )
                         )
                     ),
-                    'consultarPorClave'=> array(
-                        'path'		=> 'cuerpos_academicos/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'clave_ca'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> true,
+                    'consultarPorClave' => array(
+                        'path'      => 'cuerpos_academicos/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array(
+                            'clave_ca'  => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => true,
                             ),
-                            'cvu_miembros'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                            'cvu_miembros'  => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false,
                             )
                         )
                     ),
@@ -198,12 +198,12 @@ class TnmCvuApiProdep extends TnmApiServiceBase
             $this->serviceName,
             'niveles_cuerpo_academico',
             array(
-                'methods'	=> array(
-                    'listar'	=> array(
-                        'path'		=> 'niveles_cuerpo_academico/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array()
+                'methods'   => array(
+                    'listar'    => array(
+                        'path'      => 'niveles_cuerpo_academico/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array()
                     )
                 )
             )
@@ -213,12 +213,12 @@ class TnmCvuApiProdep extends TnmApiServiceBase
             $this->serviceName,
             'areas',
             array(
-                'methods'	=> array(
-                    'listar'=> array(
-                        'path'	=> 'areas/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array()
+                'methods'   => array(
+                    'listar' => array(
+                        'path'  => 'areas/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array()
                     )
                 )
             )
@@ -233,7 +233,7 @@ class CVU_API_Prodep_Areas extends TnmApiResourceBase
     public function listar()
     {
         $params = array();
-        return $this->call('listar',array($params), CVU_AreasProdep::class);
+        return $this->call('listar', array($params), CVU_AreasProdep::class);
     }
 }
 class CVU_AreasProdep extends TnmApiCollectionBase
@@ -258,15 +258,15 @@ class CVU_AreaProdep extends TnmApiModelBase
 class CVU_API_Prodep_Registro extends TnmApiResourceBase
 {
     /**
-     *	Consulta adscripciones de la persona a TECNM
+     *  Consulta adscripciones de la persona a TECNM
      *
-     *	@param int $id_adscripcion Realiza la consulta de un único programa.
+     *  @param int $id_adscripcion Realiza la consulta de un único programa.
      *  @return CVU_RegistroProdep
      */
     public function consultar()
     {
         $params = array();
-        return $this->call('consultar',array($params), CVU_RegistroProdep::class);
+        return $this->call('consultar', array($params), CVU_RegistroProdep::class);
     }
 }
 class CVU_RegistroProdep extends TnmApiModelBase
@@ -280,35 +280,35 @@ class CVU_RegistroProdep extends TnmApiModelBase
 class CVU_API_Prodep_PerfilDeseable extends TnmApiResourceBase
 {
     /**
-     *	Consulta adscripciones de la persona a TECNM
+     *  Consulta adscripciones de la persona a TECNM
      *
-     *	@param int $id_adscripcion Realiza la consulta de un único programa.
-     *	@return CVU_PerfilesDeseablesProdep
+     *  @param int $id_adscripcion Realiza la consulta de un único programa.
+     *  @return CVU_PerfilesDeseablesProdep
      */
     public function consultar(array $optParams = array())
     {
         $params = $optParams;
-        return $this->call('consultar',array($params), CVU_PerfilesDeseablesProdep::class);
+        return $this->call('consultar', array($params), CVU_PerfilesDeseablesProdep::class);
     }
     /**
-     *	Lista las adscripciones de la persona a TECNM
+     *  Lista las adscripciones de la persona a TECNM
      *
-     *	@param array $optParams Establece filtros para los programas.
-     *		- int $id_institucion: Recupera los programas que pertenecen a la institucion especificada.
-     *		- int $id_plantel: Recupera los programas que pertenecen al plantel especificado.
-     *		- boolean $vigente: (UNICAMENTE SI ESTA DEFINIDO)
-     *			- Si es VERDADERO devuelve en la lista una adscripción que es la última vigente registrada.
-     *			- Si es FALSO devuelve una lista las adscripciones que no son vigentes.
-     *		- boolean $unchecked:
-     *			- Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
-     *			por TECNM, es decir, no han pasado un proceso de validación.
+     *  @param array $optParams Establece filtros para los programas.
+     *      - int $id_institucion: Recupera los programas que pertenecen a la institucion especificada.
+     *      - int $id_plantel: Recupera los programas que pertenecen al plantel especificado.
+     *      - boolean $vigente: (UNICAMENTE SI ESTA DEFINIDO)
+     *          - Si es VERDADERO devuelve en la lista una adscripción que es la última vigente registrada.
+     *          - Si es FALSO devuelve una lista las adscripciones que no son vigentes.
+     *      - boolean $unchecked:
+     *          - Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
+     *          por TECNM, es decir, no han pasado un proceso de validación.
      *
-     *	@return CVU_PerfilesDeseablesProdep
+     *  @return CVU_PerfilesDeseablesProdep
      */
     public function listar($optParams = array())
     {
         $params = $optParams;
-        return $this->call('listar',array($params),CVU_PerfilesDeseablesProdep::class);
+        return $this->call('listar', array($params), CVU_PerfilesDeseablesProdep::class);
     }
 }
 class CVU_PerfilesDeseablesProdep extends TnmApiCollectionBase
@@ -349,7 +349,7 @@ class CVU_API_Prodep_NivelesCuerpoAcademico extends TnmApiResourceBase
     public function listar(array $optParams = array())
     {
         $params = $optParams;
-        return $this->call('listar',array($params), CVU_NivelesCuerpoAcademicoProdep::class);
+        return $this->call('listar', array($params), CVU_NivelesCuerpoAcademicoProdep::class);
     }
 }
 class CVU_NivelesCuerpoAcademicoProdep extends TnmApiCollectionBase
@@ -374,16 +374,16 @@ class CVU_NivelCuerpoAcademicoProdep extends TnmApiModelBase
 class CVU_API_Prodep_CuerposAcademicos extends TnmApiResourceBase
 {
     /**
-     *	Consulta adscripciones de la persona a TECNM
+     *  Consulta adscripciones de la persona a TECNM
      *
-     *	@param int $id_adscripcion Realiza la consulta de un único programa.
+     *  @param int $id_adscripcion Realiza la consulta de un único programa.
      *  @return CVU_CuerpoAcademicoProdep
      */
     public function consultarPorId($id_cuerpo_academico, array $optParams = array())
     {
         $params = array('id_cuerpo_academico' => $id_cuerpo_academico);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_CuerpoAcademicoProdep::class);
+        return $this->call('consultarPorId', array($params), CVU_CuerpoAcademicoProdep::class);
     }
 
     /**
@@ -391,30 +391,30 @@ class CVU_API_Prodep_CuerposAcademicos extends TnmApiResourceBase
      */
     public function consultarPorClave($clave_ca, array $optParams = array())
     {
-        $params = array('clave_ca'=>$clave_ca);
-        $params = array_merge($params,$optParams);
-        return $this->call('consultarPorClave',array($params), CVU_CuerpoAcademicoProdep::class);
+        $params = array('clave_ca' => $clave_ca);
+        $params = array_merge($params, $optParams);
+        return $this->call('consultarPorClave', array($params), CVU_CuerpoAcademicoProdep::class);
     }
     /**
-     *	Lista las adscripciones de la persona a TECNM
+     *  Lista las adscripciones de la persona a TECNM
      *
-     *	@param array $optParams Establece filtros para los programas.
-     *		- int $id_institucion: Recupera los programas que pertenecen a la institucion especificada.
-     *		- int $id_plantel: Recupera los programas que pertenecen al plantel especificado.
-     *		- boolean $vigente: (UNICAMENTE SI ESTA DEFINIDO)
-     *			- Si es VERDADERO devuelve en la lista una adscripción que es la última vigente registrada.
-     *			- Si es FALSO devuelve una lista las adscripciones que no son vigentes.
-     *		- boolean $unchecked:
-     *			- Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
-     *			por TECNM, es decir, no han pasado un proceso de validación.
+     *  @param array $optParams Establece filtros para los programas.
+     *      - int $id_institucion: Recupera los programas que pertenecen a la institucion especificada.
+     *      - int $id_plantel: Recupera los programas que pertenecen al plantel especificado.
+     *      - boolean $vigente: (UNICAMENTE SI ESTA DEFINIDO)
+     *          - Si es VERDADERO devuelve en la lista una adscripción que es la última vigente registrada.
+     *          - Si es FALSO devuelve una lista las adscripciones que no son vigentes.
+     *      - boolean $unchecked:
+     *          - Si es VERDADERO devolverá incluso aquellas adscripciones que no hayan sido verificadas
+     *          por TECNM, es decir, no han pasado un proceso de validación.
      *
-     *	@return CVU_CuerposAcademicosProdep
+     *  @return CVU_CuerposAcademicosProdep
      */
     public function consultar(array $optParams = array())
     {
         // $params = array('id_cuerpo_academico' => $id_cuerpo_academico);
         $params = array_merge($optParams);
-        return $this->call('consultar',array($params), CVU_CuerposAcademicosProdep::class);
+        return $this->call('consultar', array($params), CVU_CuerposAcademicosProdep::class);
     }
     public function listar(array $optParams = array())
     {

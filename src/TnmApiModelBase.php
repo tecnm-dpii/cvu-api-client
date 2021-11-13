@@ -1,12 +1,13 @@
 <?php
 
 namespace TecNM_DPII\CVU_API_Client;
+
 use ArrayAccess;
 use JsonSerializable;
 
 abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
 {
-    const NULL_VALUE = "{}capi-php-null";
+    public const NULL_VALUE = "{}capi-php-null";
     protected $internal_capi_mappings = array();
     protected $flip_internal_capi_mappings;
     protected $modelData = array();
@@ -33,8 +34,10 @@ abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
         if (isset($this->$keyTypeName) && !isset($this->processed[$key])) {
             if (isset($this->modelData[$key])) {
                 $val = $this->modelData[$key];
-            } elseif (isset($this->keyDataType) &&
-                ($this->$keyDataType == 'array' || $this->$keyDataType == 'map')) {
+            } elseif (
+                isset($this->keyDataType) &&
+                ($this->$keyDataType == 'array' || $this->$keyDataType == 'map')
+            ) {
                 $val = array();
             } else {
                 $val = null;
@@ -50,7 +53,7 @@ abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
                 }
             } elseif (is_array($val)) {
                 $arrayObject = array();
-                foreach($val as $arrayIndex => $arrayItem) {
+                foreach ($val as $arrayIndex => $arrayItem) {
                     $arrayObject[$arrayIndex] =
                         $this->createObjectFromName($keyTypeName, $arrayItem);
                 }
@@ -63,9 +66,11 @@ abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
     protected function mapTypes($array)
     {
         // var_dump($array);
-        foreach($array as $key => $val) {
-            if (!property_exists($this, $this->keyType($key)) &&
-                property_exists($this, $key)) {
+        foreach ($array as $key => $val) {
+            if (
+                !property_exists($this, $this->keyType($key)) &&
+                property_exists($this, $key)
+            ) {
                 $this->$key = $val;
                 unset($array[$key]);
             } elseif (property_exists($this, $mappedKey = $this->getFlipMappedName($key))) {
@@ -79,7 +84,7 @@ abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
     }
     protected function keyType($key)
     {
-        return $key.'Type';
+        return $key . 'Type';
     }
     public function toSimpleObject()
     {
@@ -130,16 +135,20 @@ abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
     }
     private function getMappedName($key)
     {
-        if (isset($this->internal_capi_mappings) &&
-            isset($this->internal_capi_mappings[$key])) {
+        if (
+            isset($this->internal_capi_mappings) &&
+            isset($this->internal_capi_mappings[$key])
+        ) {
             $key = $this->internal_capi_mappings[$key];
         }
         return $key;
     }
     private function getFlipMappedName($key)
     {
-        if (isset($this->flip_internal_capi_mappings) &&
-            isset($this->flip_internal_capi_mappings[$key])) {
+        if (
+            isset($this->flip_internal_capi_mappings) &&
+            isset($this->flip_internal_capi_mappings[$key])
+        ) {
             $key = $this->flip_internal_capi_mappings[$key];
         }
         return $key;
@@ -164,7 +173,7 @@ abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
     }
     protected function dataType($key)
     {
-        return $key."DataType";
+        return $key . "DataType";
     }
     public function __isset($key)
     {
@@ -201,8 +210,8 @@ abstract class TnmApiModelBase implements ArrayAccess, JsonSerializable
 
     protected function camelCase($value)
     {
-        $value = ucwords(str_replace(array('-','_'), ' ', $value));
-        $value = str_replace(' ', '',$value);
+        $value = ucwords(str_replace(array('-', '_'), ' ', $value));
+        $value = str_replace(' ', '', $value);
         $value[0] = strtolower($value[0]);
         return $value;
     }

@@ -31,43 +31,43 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'estancias',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'estancias/{id_estancia}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'id_estancia'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                    'consultar' => array(
+                        'path'      => 'estancias/{id_estancia}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'id_estancia'   => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     )
@@ -80,108 +80,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'productos',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'productos/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'productos/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'productos/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'productos/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -194,108 +194,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'articulos',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'articulos/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'articulos/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'articulos/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'articulos/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -308,108 +308,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'capitulos_libro',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'capitulos_libro/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'capitulos_libro/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'capitulos_libro/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'capitulos_libro/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -422,108 +422,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'libros',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'libros/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'libros/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'libros/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'libros/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -536,108 +536,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'memorias',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'memorias/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'memorias/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'memorias/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'memorias/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -650,108 +650,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'propiedades_autorales',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'propiedades_autorales/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'propiedades_autorales/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'propiedades_autorales/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'propiedades_autorales/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -764,108 +764,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'propiedades_industriales',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'propiedades_industriales/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'propiedades_industriales/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'propiedades_industriales/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'propiedades_industriales/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -878,108 +878,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'prototipos',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'prototipos/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'prototipos/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'prototipos/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'prototipos/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -992,108 +992,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'tesis_dirigidas',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'tesis_dirigidas/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'tesis_dirigidas/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'			=> 'tesis_dirigidas/{id_producto_acad}',
-                        'httpMethod'	=> 'GET',
-                        'grant_lvl'		=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'	=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true
+                    'consultarPorId'    => array(
+                        'path'          => 'tesis_dirigidas/{id_producto_acad}',
+                        'httpMethod'    => 'GET',
+                        'grant_lvl'     => TnmApiClient::OWNER_ACCESS,
+                        'parameters'    => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true
                             )
                         )
                     )
@@ -1106,108 +1106,108 @@ class TnmCvuApiProductividad extends TnmApiServiceBase
             'otros',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'otros/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
+                    'consultar' => array(
+                        'path'      => 'otros/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
                             // ------------------------------------------------
-                            //	FILTROS DE PRODUCTOS DE INVESTIGACIÓN
+                            //  FILTROS DE PRODUCTOS DE INVESTIGACIÓN
                             // ------------------------------------------------
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais'		=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'pais'      => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'pais_alfa2'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa2'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'pais_alfa3'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                            'pais_alfa3'    => array(
+                                'location'  => 'query',
+                                'type'      => 'string',
+                                'required'  => false,
                             ),
-                            'proposito'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'proposito' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_conocimiento'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_conocimiento' => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'area_prioritaria'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'area_prioritaria'  => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'disciplina'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'disciplina'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'sector'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                            'sector'    => array(
+                                'location'  => 'query',
+                                'type'      => 'number',
+                                'required'  => false,
                             ),
-                            'publicado_desde'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_desde'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'publicado_hasta'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                            'publicado_hasta'   => array(
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            //  FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'  => 'query',
+                                'type'      => 'date',
+                                'required'  => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked' => array(
+                                'location'  => 'query',
+                                'type'      => 'boolean',
+                                'required'  => false
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'		=> 'otros/{id_producto_acad}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'id_producto_acad'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> true,
+                    'consultarPorId'    => array(
+                        'path'      => 'otros/{id_producto_acad}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl' => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'id_producto_acad'  => array(
+                                'location'  => 'path',
+                                'type'      => 'number',
+                                'required'  => true,
                             )
                         )
                     )
@@ -1225,7 +1225,7 @@ class CVU_API_Productividad_Estancias extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Estancias::class);
+        return $this->call('consultar', array($params), CVU_Estancias::class);
     }
 }
 class CVU_Estancias extends TnmApiCollectionBase
@@ -1356,7 +1356,7 @@ class CVU_Producto extends TnmApiModelBase
     }
     public function getAutoresArray()
     {
-        $autores = explode(';',trim($this->autores));
+        $autores = explode(';', trim($this->autores));
         return $autores;
     }
     public function getTitulo()
@@ -1385,7 +1385,7 @@ class CVU_API_Productividad extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Productos::class);
+        return $this->call('consultar', array($params), CVU_Productos::class);
     }
 
     /**
@@ -1393,9 +1393,9 @@ class CVU_API_Productividad extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_Producto::class);
+        return $this->call('consultarPorId', array($params), CVU_Producto::class);
     }
 }
 class CVU_Productos extends TnmApiCollectionBase
@@ -1422,9 +1422,9 @@ class CVU_API_Productividad_Articulos extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_Articulo::class);
+        return $this->call('consultarPorId', array($params), CVU_Articulo::class);
     }
 }
 class CVU_Articulos extends TnmApiCollectionBase
@@ -1456,7 +1456,7 @@ class CVU_API_Productividad_Capitulos_Libro extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_CapitulosLibro::class);
+        return $this->call('consultar', array($params), CVU_CapitulosLibro::class);
     }
 
     /**
@@ -1464,9 +1464,9 @@ class CVU_API_Productividad_Capitulos_Libro extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_CapituloLibro::class);
+        return $this->call('consultarPorId', array($params), CVU_CapituloLibro::class);
     }
 }
 class CVU_CapitulosLibro extends TnmApiCollectionBase
@@ -1493,17 +1493,17 @@ class CVU_API_Productividad_Libros extends TnmApiResourceBase
     public function consultar(array $optParams = array())
     {
         $params = array();
-        $params = array_merge($params,$optParams);
-        return $this->call('consultar',array($params), CVU_Libros::class);
+        $params = array_merge($params, $optParams);
+        return $this->call('consultar', array($params), CVU_Libros::class);
     }
     /**
      * @return CVU_Libro
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_Libro::class);
+        return $this->call('consultarPorId', array($params), CVU_Libro::class);
     }
 }
 class CVU_Libros extends TnmApiCollectionBase
@@ -1531,7 +1531,7 @@ class CVU_API_Productividad_Memorias extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Memorias::class);
+        return $this->call('consultar', array($params), CVU_Memorias::class);
     }
 
     /**
@@ -1539,9 +1539,9 @@ class CVU_API_Productividad_Memorias extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_Memoria::class);
+        return $this->call('consultarPorId', array($params), CVU_Memoria::class);
     }
 }
 class CVU_Memorias extends TnmApiCollectionBase
@@ -1569,8 +1569,8 @@ class CVU_API_Productividad_Propiedades_Autorales extends TnmApiResourceBase
     public function consultar(array $optParams = array())
     {
         $params = array();
-        $params = array_merge($params,$optParams);
-        return $this->call('consultar',array($params), CVU_PropiedadesAutorales::class);
+        $params = array_merge($params, $optParams);
+        return $this->call('consultar', array($params), CVU_PropiedadesAutorales::class);
     }
 
     /**
@@ -1578,9 +1578,9 @@ class CVU_API_Productividad_Propiedades_Autorales extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_PropiedadAutoral::class);
+        return $this->call('consultarPorId', array($params), CVU_PropiedadAutoral::class);
     }
 }
 class CVU_PropiedadesAutorales extends TnmApiCollectionBase
@@ -1605,7 +1605,7 @@ class CVU_API_Productividad_Propiedades_Industriales extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_PropiedadesIndustriales::class);
+        return $this->call('consultar', array($params), CVU_PropiedadesIndustriales::class);
     }
 
     /**
@@ -1613,9 +1613,9 @@ class CVU_API_Productividad_Propiedades_Industriales extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_PropiedadIndustrial::class);
+        return $this->call('consultarPorId', array($params), CVU_PropiedadIndustrial::class);
     }
 }
 class CVU_PropiedadesIndustriales extends TnmApiCollectionBase
@@ -1644,7 +1644,7 @@ class CVU_API_Productividad_Prototipos extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Prototipos::class);
+        return $this->call('consultar', array($params), CVU_Prototipos::class);
     }
 
     /**
@@ -1652,9 +1652,9 @@ class CVU_API_Productividad_Prototipos extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_Prototipo::class);
+        return $this->call('consultarPorId', array($params), CVU_Prototipo::class);
     }
 }
 class CVU_Prototipos extends TnmApiCollectionBase
@@ -1681,7 +1681,7 @@ class CVU_API_Productividad_Tesis_Dirigidas extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_TesisDirigidas::class);
+        return $this->call('consultar', array($params), CVU_TesisDirigidas::class);
     }
 
     /**
@@ -1689,9 +1689,9 @@ class CVU_API_Productividad_Tesis_Dirigidas extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_TesisDirigida::class);
+        return $this->call('consultarPorId', array($params), CVU_TesisDirigida::class);
     }
 }
 class CVU_TesisDirigidas extends TnmApiCollectionBase
@@ -1717,7 +1717,7 @@ class CVU_API_Productividad_Otros extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_OtrosProductos::class);
+        return $this->call('consultar', array($params), CVU_OtrosProductos::class);
     }
 
     /**
@@ -1725,9 +1725,9 @@ class CVU_API_Productividad_Otros extends TnmApiResourceBase
      */
     public function consultarPorId($id_producto_acad, array $optParams = array())
     {
-        $params = array('id_producto_acad'=>$id_producto_acad);
+        $params = array('id_producto_acad' => $id_producto_acad);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_OtroProducto::class);
+        return $this->call('consultarPorId', array($params), CVU_OtroProducto::class);
     }
 }
 class CVU_OtrosProductos extends TnmApiCollectionBase
@@ -1739,5 +1739,4 @@ class CVU_OtrosProductos extends TnmApiCollectionBase
 }
 class CVU_OtroProducto extends CVU_Producto
 {
-
 }

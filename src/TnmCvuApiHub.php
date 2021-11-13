@@ -22,16 +22,16 @@ class TnmCvuApiHub extends TnmApiServiceBase
             $this->serviceName,
             'usuarios',
             array(
-                'methods'=>array(
-                    'buscar'=>array(
-                        'path'	=> '/aplicacion/usuarios/{cvu_tecnm}',
-                        'httpMethod'=> 'GET',
+                'methods' => array(
+                    'buscar' => array(
+                        'path'    => '/aplicacion/usuarios/{cvu_tecnm}',
+                        'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_CONFIDENTIAL,
-                        'parameters'=> array(
-                            'cvu_tecnm'=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true
+                        'parameters' => array(
+                            'cvu_tecnm' => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true
                             )
                         )
                     )
@@ -48,7 +48,7 @@ class TnmCvuApiHub extends TnmApiServiceBase
     }
     public function __get($name)
     {
-        switch($name) {
+        switch ($name) {
             case 'perfil':
                 return $this->getApiInstance(TnmCvuApiPerfil::class);
             case 'datos_laborales':
@@ -76,7 +76,7 @@ class CVU_API_Usuarios extends TnmApiResourceBase
     {
         $params = array('cvu_tecnm' => $cvu_tecnm);
         $params = array_merge($params, $optParams);
-        return $this->call('buscar',array($params), CVU_Usuario::class);
+        return $this->call('buscar', array($params), CVU_Usuario::class);
     }
 }
 class CVU_Usuario extends TnmApiModelBase

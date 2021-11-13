@@ -7,12 +7,12 @@ class OAuth2
     public function __construct($config)
     {
         $opts = array([
-            'clientId'			=> null,
-            'clientSecret'		=> null,
-            'authorizationUrl'	=> null,
-            'tokenCredentialUri'=> null,
-            'redirectUri'		=> null,
-            'issuer'			=> null
+            'clientId'              => null,
+            'clientSecret'          => null,
+            'authorizationUrl'      => null,
+            'tokenCredentialUri'    => null,
+            'redirectUri'           => null,
+            'issuer'                => null
         ], $config);
         $this->setAuthorizationUri($opts['authorizationUrl']);
         $this->setRedirectUri($opts['redirectUri']);
@@ -60,23 +60,19 @@ class OAuth2
         return $this->redirectUri;
     }
 
-    private function setClientId($clientId) 
+    private function setClientId($clientId)
     {
-
     }
 
     private function setClientSecret($clientSecret)
     {
-
     }
 
     private function setIssuer($issuer)
     {
-
     }
 
     private function isAbsolute($uri)
     {
-
     }
 }

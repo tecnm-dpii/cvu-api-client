@@ -12,5 +12,5 @@ abstract class TnmApiServiceBase
     public function getClient()
     {
         return $this->client;
-    }	
+    }
 }

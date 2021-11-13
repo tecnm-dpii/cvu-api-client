@@ -14,9 +14,9 @@ class TnmCvuApiPerfil extends TnmApiServiceBase
     public function __construct(TnmApiClient $client)
     {
         parent::__construct($client);
-        $this->rootUrl		= $client::API_BASE_PATH;
-        $this->servicePath	= '/perfil/';
-        $this->serviceName	= 'perfil';
+        $this->rootUrl        = $client::API_BASE_PATH;
+        $this->servicePath    = '/perfil/';
+        $this->serviceName    = 'perfil';
 
         $this->datos_personales = new CVU_API_Perfil_Datos_Personales(
             $this,
@@ -25,13 +25,13 @@ class TnmCvuApiPerfil extends TnmApiServiceBase
             array(
                 'methods' => array(
                     'consultar' => array(
-                        'path'		=> 'datos_personales/{cvu_tecnm}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'cvu_tecnm'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
+                        'path'        => 'datos_personales/{cvu_tecnm}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'cvu_tecnm'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
                             ),
                         ),
                     ),
@@ -48,7 +48,7 @@ class CVU_API_Perfil_Datos_Personales extends TnmApiResourceBase
     public function consultar($optParams = array())
     {
         $params = $optParams;
-        return $this->call('consultar',array($params), CVU_Datos_Personales::class);
+        return $this->call('consultar', array($params), CVU_Datos_Personales::class);
     }
 }
 class CVU_Datos_Personales extends TnmApiModelBase

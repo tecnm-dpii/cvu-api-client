@@ -22,43 +22,43 @@ class TnmCvuApiDistinciones extends TnmApiServiceBase
             'certificaciones',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'certificaciones/{id_certificacion}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'id_certificacion'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                    'consultar'    => array(
+                        'path'        => 'certificaciones/{id_certificacion}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'id_certificacion'    => array(
+                                'location'    => 'path',
+                                'type'        => 'number',
+                                'required'    => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            // FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked'    => array(
+                                'location'    => 'query',
+                                'type'        => 'boolean',
+                                'required'    => false
                             )
                         )
                     )
@@ -71,43 +71,43 @@ class TnmCvuApiDistinciones extends TnmApiServiceBase
             'colegios',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'colegios/{id_colegio}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'id_colegio'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                    'consultar'    => array(
+                        'path'        => 'colegios/{id_colegio}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'id_colegio'    => array(
+                                'location'    => 'path',
+                                'type'        => 'number',
+                                'required'    => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            // FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked'    => array(
+                                'location'    => 'query',
+                                'type'        => 'boolean',
+                                'required'    => false
                             )
                         )
                     )
@@ -120,43 +120,43 @@ class TnmCvuApiDistinciones extends TnmApiServiceBase
             'estimulo_desempeno_docente',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'estimulo_desempeno_docente/{id_edd}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'id_edd'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                    'consultar'    => array(
+                        'path'        => 'estimulo_desempeno_docente/{id_edd}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'id_edd'    => array(
+                                'location'    => 'path',
+                                'type'        => 'number',
+                                'required'    => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            // FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked'    => array(
+                                'location'    => 'query',
+                                'type'        => 'boolean',
+                                'required'    => false
                             )
                         )
                     )
@@ -169,43 +169,43 @@ class TnmCvuApiDistinciones extends TnmApiServiceBase
             'premios',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'		=> 'premios/{id_premio}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::OWNER_ACCESS,
-                        'parameters'=> array(
-                            'id_premio'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'number',
-                                'required'	=> false,
+                    'consultar'    => array(
+                        'path'        => 'premios/{id_premio}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::OWNER_ACCESS,
+                        'parameters' => array(
+                            'id_premio'    => array(
+                                'location'    => 'path',
+                                'type'        => 'number',
+                                'required'    => false,
                             ),
                             // ------------------------------------------------
-                            //	FILTROS GLOBALES DE CVU
+                            // FILTROS GLOBALES DE CVU
                             // ------------------------------------------------
                             'cvu_registrado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_registrado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_desde' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
                             'cvu_modificado_hasta' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'date',
-                                'required'	=> false,
+                                'location'    => 'query',
+                                'type'        => 'date',
+                                'required'    => false,
                             ),
-                            'unchecked'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'unchecked'    => array(
+                                'location'    => 'query',
+                                'type'        => 'boolean',
+                                'required'    => false
                             )
                         )
                     )
@@ -224,7 +224,7 @@ class CVU_API_Distinciones_Certificaciones extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Certificaciones::class);
+        return $this->call('consultar', array($params), CVU_Certificaciones::class);
     }
 }
 class CVU_Certificaciones extends TnmApiCollectionBase
@@ -252,7 +252,7 @@ class CVU_API_Distinciones_Colegios extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Colegios::class);
+        return $this->call('consultar', array($params), CVU_Colegios::class);
     }
 }
 class CVU_Colegios extends TnmApiCollectionBase
@@ -278,7 +278,7 @@ class CVU_API_Distinciones_EDD extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_EDDs::class);
+        return $this->call('consultar', array($params), CVU_EDDs::class);
     }
 }
 class CVU_EDDs extends TnmApiCollectionBase
@@ -303,7 +303,7 @@ class CVU_API_Premios extends TnmApiResourceBase
     {
         $params = array();
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Premios::class);
+        return $this->call('consultar', array($params), CVU_Premios::class);
     }
 }
 class CVU_Premios extends TnmApiCollectionBase

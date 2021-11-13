@@ -16,9 +16,9 @@ class TnmApiClient
     // const API_BASE_PATH		= 'https://api.cvu.acad-tecnm.mx';
 
     const OAUTH2_REVOKE_URI = 'https://cvu.dpii.tecnm.mx/index.php/oauth2/revoke';
-    const OAUTH2_TOKEN_URI	= 'https://cvu.dpii.tecnm.mx/index.php/oauth2/token';
-    const OAUTH2_AUTH_URL	= 'https://cvu.dpii.tecnm.mx/index.php/oauth2';
-    const API_BASE_PATH		= 'https://cvu.dpii.tecnm.mx/api/index.php';
+    const OAUTH2_TOKEN_URI    = 'https://cvu.dpii.tecnm.mx/index.php/oauth2/token';
+    const OAUTH2_AUTH_URL    = 'https://cvu.dpii.tecnm.mx/index.php/oauth2';
+    const API_BASE_PATH        = 'https://cvu.dpii.tecnm.mx/api/index.php';
     // const API_BASE_PATH		= 'https://api.cvu.dpii.tecnm.mx';
 
     // const OAUTH2_REVOKE_URI	= 'http://localhost/tecnm/cvu/oauth2/revoke/';
@@ -26,9 +26,9 @@ class TnmApiClient
     // const OAUTH2_AUTH_URL	= 'http://localhost/tecnm/cvu/oauth2/';
     // const API_BASE_PATH		= 'http://localhost/tecnm/cvu_api_v2';
 
-    const CLIENT_BASIC			= 'ClientID';
-    const CLIENT_CONFIDENTIAL	= 'Client Confidential';
-    const OWNER_ACCESS			= 'Owner Access';
+    const CLIENT_BASIC            = 'ClientID';
+    const CLIENT_CONFIDENTIAL    = 'Client Confidential';
+    const OWNER_ACCESS            = 'Owner Access';
 
     private $config;
 
@@ -42,26 +42,26 @@ class TnmApiClient
     {
         $this->requestedScopes = array();
         $this->config = array(
-            'application_name'	=> '',
-            'base_path'	=> self::API_BASE_PATH,
+            'application_name'    => '',
+            'base_path'    => self::API_BASE_PATH,
             // https://cvu.api.acad-tecnm.mx/developer
             'client_id' => '',
             'client_secret' => '',
-            'redirect_uri'	=> null,
-            'state'			=> null,
+            'redirect_uri'    => null,
+            'state'            => null,
             // More OAuth2 parameters.
-            'access_type'	=> 'online'
+            'access_type'    => 'online'
         );
         if (is_string($config)) {
             $this->setAuthConfig($config);
-        } elseif(is_array($config)) {
+        } elseif (is_array($config)) {
             $this->config = array_merge($this->config, $config);
         }
         $this->loadEnvParameters();
     }
     public function __get($name)
     {
-        switch($name) {
+        switch ($name) {
             case 'cvu':
                 return $this->getApiInstance(TnmCvuApiHub::class);
             case 'academica':
@@ -110,7 +110,7 @@ class TnmApiClient
         // $this->setClientId($config['client_id']);
         // $this->setClientSecret($config['client_secret']);
         // if (isset($config['redirect_uri'])) {
-        // 	$this->setRedirectUri($config['redirect_uri']);
+        //  $this->setRedirectUri($config['redirect_uri']);
         // }
         return $this;
     }
@@ -218,11 +218,11 @@ class TnmApiClient
         }
         $request = new HttpRequestHelper(self::OAUTH2_TOKEN_URI);
         $request->setMethod(HttpRequestHelper::METHOD_POST);
-        $request->setBodyVar('client_id',$this->getClientId());
-        $request->setBodyVar('client_secret',$this->getClientSecret());
-        $request->setBodyVar('redirect_uri',$this->getRedirectUri());
-        $request->setBodyVar('grant_type','authorization_code');
-        $request->setBodyVar('code',$code);
+        $request->setBodyVar('client_id', $this->getClientId());
+        $request->setBodyVar('client_secret', $this->getClientSecret());
+        $request->setBodyVar('redirect_uri', $this->getRedirectUri());
+        $request->setBodyVar('grant_type', 'authorization_code');
+        $request->setBodyVar('code', $code);
         $creds = $this->fetchAuthToken($request);
         return $creds;
     }
@@ -240,11 +240,11 @@ class TnmApiClient
         }
         $request = new HttpRequestHelper(self::OAUTH2_TOKEN_URI);
         $request->setMethod(HttpRequestHelper::METHOD_POST);
-        $request->setBodyVar('grant_type','refresh_token');
-        $request->setBodyVar('client_id',$this->getClientId());
-        $request->setBodyVar('client_secret',$this->getClientSecret());
-        $request->setBodyVar('redirect_uri',$this->getRedirectUri());
-        $request->setBodyVar('refresh_token',$refreshToken);
+        $request->setBodyVar('grant_type', 'refresh_token');
+        $request->setBodyVar('client_id', $this->getClientId());
+        $request->setBodyVar('client_secret', $this->getClientSecret());
+        $request->setBodyVar('redirect_uri', $this->getRedirectUri());
+        $request->setBodyVar('refresh_token', $refreshToken);
         $creds = $this->fetchAuthToken($request);
         $creds['refresh_token'] = $refreshToken;
 
@@ -261,12 +261,12 @@ class TnmApiClient
     {
         $auth = new OAuth2(
             [
-                'clientId'			=> $this->getClientId(),
-                'clientSecret'		=> $this->getClientSecret(),
-                'authorizationUrl'	=> self::OAUTH2_AUTH_URL,
-                'tokenCredentialUri'=> self::OAUTH2_TOKEN_URI,
-                'redirectUri'		=> $this->getRedirectUri(),
-                'issuer'			=> $this->config['client_id']
+                'clientId'            => $this->getClientId(),
+                'clientSecret'        => $this->getClientSecret(),
+                'authorizationUrl'    => self::OAUTH2_AUTH_URL,
+                'tokenCredentialUri' => self::OAUTH2_TOKEN_URI,
+                'redirectUri'        => $this->getRedirectUri(),
+                'issuer'            => $this->config['client_id']
             ]
         );
         return $auth;
@@ -275,7 +275,7 @@ class TnmApiClient
     {
         if (is_string($token)) {
             // echo "Token es String {$token}<br/><br/>";
-            if ($json = json_decode($token,true)) {
+            if ($json = json_decode($token, true)) {
                 // echo "Token es JSON {$token}<br/><br/>";
                 $token = $json;
             } else {
@@ -322,11 +322,9 @@ class TnmApiClient
     }
     public function setIncludeGrantedScopes()
     {
-
     }
     public function revokeToken()
     {
-
     }
     public function authorize(HttpRequestHelper &$request)
     {
@@ -334,14 +332,14 @@ class TnmApiClient
         switch ($grant_level) {
             case self::CLIENT_BASIC:
                 $request
-                    ->setBodyVar('client_id',$this->getClientId());
+                    ->setBodyVar('client_id', $this->getClientId());
                 break;
             case self::CLIENT_CONFIDENTIAL:
-                $request->setBodyVar('client_id',$this->getClientId());
-                $request->setBodyVar('client_secret',$this->getClientSecret());
+                $request->setBodyVar('client_id', $this->getClientId());
+                $request->setBodyVar('client_secret', $this->getClientSecret());
                 break;
             case self::OWNER_ACCESS:
-                $request->setBodyVar('client_id',$this->getClientId());
+                $request->setBodyVar('client_id', $this->getClientId());
                 if ($token = $this->getAccessToken()) {
                     $scopes = $this->prepareScopes();
                     if ($this->isAccessTokenExpired() && isset($token['refresh_token'])) {
@@ -352,9 +350,8 @@ class TnmApiClient
                         $this->setAccessToken($token);
                         foreach ($this->refresh_token_callbacks as $rf_callback) {
                             $lrf_callback = $rf_callback->bindTo($this);
-                            call_user_func($lrf_callback,[]);
+                            call_user_func($lrf_callback, []);
                         }
-
                     }
                 }
                 if ($token['token_type'] == 'Bearer') {
@@ -389,18 +386,17 @@ class TnmApiClient
             // $this->setAccessToken($creds);
         } else {
             throw new \Exception($body, 1000);
-
         }
 
         return $creds;
     }
-    public function execute (HttpRequestHelper $request, $expectedClass = null)
+    public function execute(HttpRequestHelper $request, $expectedClass = null)
     {
         $request
             ->setHeader(
                 'User-Agent',
                 $this->config['application_name']
-                . " " . self::USER_AGENT_SUFFIX
+                    . " " . self::USER_AGENT_SUFFIX
             );
         $this->authorize($request);
         // var_dump($request);
@@ -414,7 +410,7 @@ class TnmApiClient
         $body = $this->raw_response_body = $response->getBody();
 
         $result = null;
-        if ($json = json_decode($body,true)) {
+        if ($json = json_decode($body, true)) {
             $result = $json;
         } else {
             $result = $body;

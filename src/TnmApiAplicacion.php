@@ -19,16 +19,16 @@ class TnmApiAplicacion extends TnmApiServiceBase
             $this->serviceName,
             'usuarios',
             array(
-                'methods'=> array(
+                'methods' => array(
                     'buscar' => array(
-                        'path'		=>  'usuarios/{cvu_tecnm}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_CONFIDENTIAL,
-                        'parameters'=> array(
-                            'cvu_tecnm'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true
+                        'path'        =>  'usuarios/{cvu_tecnm}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::CLIENT_CONFIDENTIAL,
+                        'parameters' => array(
+                            'cvu_tecnm'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true
                             )
                         )
                     )
@@ -42,74 +42,74 @@ class TnmApiAplicacion extends TnmApiServiceBase
             array(
                 'methods' => array(
                     'enviar' => array(
-                        'path'		=> 'mensajes/',
-                        'httpMethod'=> 'POST',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_CONFIDENTIAL,
-                        'parameters'=> array(
-                            'cvu_tecnm'	=> array(
-                                'location'	=>'body',
-                                'type'		=>'string',
-                                'required'	=> true
+                        'path'        => 'mensajes/',
+                        'httpMethod' => 'POST',
+                        'grant_lvl'    => TnmApiClient::CLIENT_CONFIDENTIAL,
+                        'parameters' => array(
+                            'cvu_tecnm'    => array(
+                                'location'    => 'body',
+                                'type'        => 'string',
+                                'required'    => true
                             ),
-                            'with_email'=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'boolean',
-                                'required'	=> false
+                            'with_email' => array(
+                                'location'    => 'query',
+                                'type'        => 'boolean',
+                                'required'    => false
                             )
                         ),
                     ),
-                    'consultar'	=> array(
-                        'path'		=> 'mensajes/{id_mensaje}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_CONFIDENTIAL,
-                        'parameters'=> array(
-                            'id_mensaje'=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true,
+                    'consultar'    => array(
+                        'path'        => 'mensajes/{id_mensaje}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::CLIENT_CONFIDENTIAL,
+                        'parameters' => array(
+                            'id_mensaje' => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true,
                             ),
                         ),
                     ),
-                    'listar'	=> array(
-                        'path'		=> 'mensajes/{cvu_tecnm}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_CONFIDENTIAL,
-                        'parameters'=> array(
-                            'cvu_tecnm'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> false
+                    'listar'    => array(
+                        'path'        => 'mensajes/{cvu_tecnm}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::CLIENT_CONFIDENTIAL,
+                        'parameters' => array(
+                            'cvu_tecnm'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => false
                             ),
                         ),
                     ),
                 )
             )
         );
-        $this->correos = new CVU_API_Aplicacion_Correos (
+        $this->correos = new CVU_API_Aplicacion_Correos(
             $this,
             $this->serviceName,
             'correos',
             array(
                 'methods' => array(
                     'enviar' => array(
-                        'path'	=> 'correos',
+                        'path'    => 'correos',
                         'httpMethod' => 'POST',
                         'grant_lvl' => TnmApiClient::CLIENT_CONFIDENTIAL,
                         'parameters' => array(
                             'cvu_tecnm' => array(
-                                'location'	=> 'body',
-                                'type'		=> 'string',
-                                'required'	=> true
+                                'location'    => 'body',
+                                'type'        => 'string',
+                                'required'    => true
                             ),
                             'subject' => array(
-                                'location'	=> 'body',
-                                'type'		=> 'string',
-                                'required'	=> true
+                                'location'    => 'body',
+                                'type'        => 'string',
+                                'required'    => true
                             ),
                             'content' => array(
-                                'location'	=> 'body',
-                                'type'		=> 'string',
-                                'required'	=> true
+                                'location'    => 'body',
+                                'type'        => 'string',
+                                'required'    => true
                             )
                         )
                     )
@@ -131,7 +131,7 @@ class CVU_API_Aplicacion_Usuarios extends TnmApiResourceBase
     {
         $params = array('cvu_tecnm' => $cvu_tecnm);
         $params = array_merge($params, $optParams);
-        return $this->call('buscar',array($params), CVU_Usuario::class);
+        return $this->call('buscar', array($params), CVU_Usuario::class);
     }
 }
 class CVU_Usuario extends TnmApiModelBase
@@ -164,44 +164,44 @@ class CVU_API_Aplicacion_Mensajes extends TnmApiResourceBase
     {
         $params = array('cvu_tecnm' => $cvu_tecnm);
         $params = array_merge($params, $optParams);
-        return $this->call('listar',array($params));
+        return $this->call('listar', array($params));
     }
     /**
-     *	Crea un nuevo mensaje para usuario de CVU.
+     * Crea un nuevo mensaje para usuario de CVU.
      *
-     *	@param string $cvu_tecnm La clave de CVU del usuario. El valor especial
-     *	"yo" puede utilizarse para referirse al usuario autenticado.
-     *	@param Mensaje $mensaje El contenido del mensaje que se desea enviar al
-     *	usuario de CVU.
+     * @param string $cvu_tecnm La clave de CVU del usuario. El valor especial
+     * "yo" puede utilizarse para referirse al usuario autenticado.
+     * @param Mensaje $mensaje El contenido del mensaje que se desea enviar al
+     * usuario de CVU.
      *  @return CVU_Mensaje_Aplicacion
      */
     public function enviar($cvu_tecnm, CVU_Mensaje_Aplicacion $mensaje, $optParams = array())
     {
         $params = array('cvu_tecnm' => $cvu_tecnm, 'postBody' => $mensaje);
         $params = array_merge($params, $optParams);
-        return $this->call('enviar',array($params), CVU_Mensaje_Aplicacion::class);
+        return $this->call('enviar', array($params), CVU_Mensaje_Aplicacion::class);
     }
     /**
-     *	Crea un nuevo mensaje para usuario de CVU.
+     * Crea un nuevo mensaje para usuario de CVU.
      *
-     *	@param string $id El ID generado por la base de datos para acceder al
-     *	mensaje.
-     *  @return CVU_Mensaje_Aplicacion  
+     * @param string $id El ID generado por la base de datos para acceder al
+     * mensaje.
+     *  @return CVU_Mensaje_Aplicacion
      */
     public function consultar($id, $optParams = array())
     {
         $params = array('id_mensaje' => $id);
         $params = array_merge($params, $optParams);
-        return $this->call('consultar',array($params), CVU_Mensaje_Aplicacion::class);
+        return $this->call('consultar', array($params), CVU_Mensaje_Aplicacion::class);
     }
 }
 class CVU_Mensaje_Aplicacion extends TnmApiModelBase
 {
     protected $internal_capi_mappings = array(
-            'id'	=> 'message_id',
-            'asunto'=> 'subject',
-            'cuerpo'=> 'body',
-        );
+        'id'    => 'message_id',
+        'asunto' => 'subject',
+        'cuerpo' => 'body',
+    );
     public $id;
     public $asunto;
     public $cuerpo;
@@ -244,6 +244,6 @@ class CVU_API_Aplicacion_Correos extends TnmApiResourceBase
             'subject' => $asunto
         );
         $params = array_merge($params, $optParams);
-        return $this->call('enviar',array($params), null);
+        return $this->call('enviar', array($params), null);
     }
 }

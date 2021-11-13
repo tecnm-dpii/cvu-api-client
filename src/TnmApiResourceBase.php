@@ -47,24 +47,22 @@ abstract class TnmApiResourceBase
 
         $paramsSpec = $method['parameters'];
 
-        foreach ($paramsSpec as $paramName => $paramSpec)
-        {
+        foreach ($paramsSpec as $paramName => $paramSpec) {
             if (isset($paramSpec['required']) && $paramSpec['required'] && !isset($parameters[$paramName])) {
                 throw new \Exception("No se ha incluido el parámetro requerido '{$paramName}' en {$this->serviceName}->{$this->resourceName}");
             }
             if (isset($paramSpec['location']) && $paramSpec['location'] === 'path' && !isset($parameters[$paramName])) {
-                $method['path'] = str_replace('{'.$paramName.'}','',$method['path']);
+                $method['path'] = str_replace('{' . $paramName . '}', '', $method['path']);
             }
         }
         $pathParameters = array();
         $queryParameters = array();
         $bodyParameters = array();
-        foreach ($parameters as $paramName => $paramVal)
-        {
+        foreach ($parameters as $paramName => $paramVal) {
             if ($paramName == 'postBody') {
                 continue;
             }
-            if (in_array($paramName,array('raw_data'))) {
+            if (in_array($paramName, array('raw_data'))) {
                 continue;
             }
             if (!isset($paramsSpec[$paramName])) {
@@ -97,12 +95,12 @@ abstract class TnmApiResourceBase
         $request = new HttpRequestHelper($requestUri);
         $request->setMethod($method['httpMethod'])
             // ->setHeader('Content-Type','application/json')
-            ->setHeader('X-Oauth2-Grant-Level',$method['grant_lvl'] ? $method['grant_lvl'] : TnmApiClient::OWNER_ACCESS)
+            ->setHeader('X-Oauth2-Grant-Level', $method['grant_lvl'] ? $method['grant_lvl'] : TnmApiClient::OWNER_ACCESS)
             ->setBodyVar($postBody);
         if (!is_null($expectedClass)) {
-            $request->setHeader('X-Php-Expected-Class',$expectedClass);
+            $request->setHeader('X-Php-Expected-Class', $expectedClass);
         }
-        
+
         if (!empty($bodyParameters)) {
             $request->setBodyVar($bodyParameters);
         }
@@ -112,9 +110,9 @@ abstract class TnmApiResourceBase
 
     private function createRequestUri($restPath, $pathParameters, $queryParameters)
     {
-        $requestUrl = rtrim($this->servicePath,'/') . '/' . ltrim($restPath,'/');
+        $requestUrl = rtrim($this->servicePath, '/') . '/' . ltrim($restPath, '/');
         if ($this->rootUrl) {
-            $requestUrl = rtrim($this->rootUrl,'/') . '/' . ltrim($requestUrl, '/');
+            $requestUrl = rtrim($this->rootUrl, '/') . '/' . ltrim($requestUrl, '/');
         }
 
         if (!empty($pathParameters)) {
@@ -129,16 +127,16 @@ abstract class TnmApiResourceBase
     }
     private function replaceVarsUri($string, $vars)
     {
-        $start = strpos($string,'{');
+        $start = strpos($string, '{');
         if ($start === false) {
             return $string;
         }
-        $end = strpos($string,'}');
+        $end = strpos($string, '}');
         if ($end === false) {
             return $string;
         }
-        $param = substr($string, $start+1, $end - $start - 1);
-        $string = substr_replace($string, isset($vars[$param]) ? $vars[$param] : '', $start, strlen($param)+2);
+        $param = substr($string, $start + 1, $end - $start - 1);
+        $string = substr_replace($string, isset($vars[$param]) ? $vars[$param] : '', $start, strlen($param) + 2);
         return $this->replaceVarsUri($string, $vars);
     }
     protected function convertToArrayAndStripNulls($o)
@@ -146,7 +144,9 @@ abstract class TnmApiResourceBase
         // var_dump($o);
         $o = (array) $o;
         foreach ($o as $k => $v) {
-            var_dump($k); echo " - "; var_dump($v);
+            var_dump($k);
+            echo " - ";
+            var_dump($v);
             if ($v === null) {
                 unset($o[$k]);
             } elseif (is_object($v) || is_array($v)) {

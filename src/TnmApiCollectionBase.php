@@ -1,19 +1,22 @@
 <?php
 
 namespace TecNM_DPII\CVU_API_Client;
+
 use Iterator;
 use Countable;
 use JsonSerializable;
 
 abstract class TnmApiCollectionBase extends TnmApiModelBase implements Iterator, Countable, JsonSerializable
 {
-    protected $collection_key	= 'items';
-    protected $keyIndexName		= null;
+    protected $collection_key = 'items';
+    protected $keyIndexName   = null;
 
     public function rewind()
     {
-        if (isset($this->modelData[$this->collection_key])
-            && is_array($this->modelData[$this->collection_key])) {
+        if (
+            isset($this->modelData[$this->collection_key])
+            && is_array($this->modelData[$this->collection_key])
+        ) {
             reset($this->modelData[$this->collection_key]);
         }
     }
@@ -26,8 +29,10 @@ abstract class TnmApiCollectionBase extends TnmApiModelBase implements Iterator,
     }
     public function key()
     {
-        if (isset($this->modelData[$this->collection_key])
-            && is_array($this->modelData[$this->collection_key])) {
+        if (
+            isset($this->modelData[$this->collection_key])
+            && is_array($this->modelData[$this->collection_key])
+        ) {
             return key($this->modelData[$this->collection_key]);
         }
     }
@@ -79,7 +84,7 @@ abstract class TnmApiCollectionBase extends TnmApiModelBase implements Iterator,
     public function setKeyAsIndex()
     {
         if (!is_null($this->itemsKeyName)) {
-            $ids = self::array_column($this->modelData[$this->collection_key],$this->itemsKeyName);
+            $ids = self::arrayColumn($this->modelData[$this->collection_key], $this->itemsKeyName);
             $this->modelData[$this->collection_key] = array_combine($ids, $this->modelData[$this->collection_key]);
         }
     }
@@ -92,7 +97,7 @@ abstract class TnmApiCollectionBase extends TnmApiModelBase implements Iterator,
                 new $type($this->modelData[$this->collection_key][$offset]);
         }
     }
-    protected static function array_column($array, $column_name, $index = null)
+    protected static function arrayColumn($array, $column_name, $index = null)
     {
         $return = array();
         foreach ($array as $key => $value) {

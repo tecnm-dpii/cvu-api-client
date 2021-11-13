@@ -15,248 +15,248 @@ class TnmApiCatalogos extends TnmApiServiceBase
     public function __construct(TnmApiClient $client)
     {
         parent::__construct($client);
-        $this->rootUrl		= $client::API_BASE_PATH;
-        $this->servicePath	= '/catalogos/';
-        $this->serviceName	= 'catalogos';
+        $this->rootUrl        = $client::API_BASE_PATH;
+        $this->servicePath    = '/catalogos/';
+        $this->serviceName    = 'catalogos';
 
-        $this->tipos_investigacion = new CVU_API_Catalogo_Tipos_Investigacion (
+        $this->tipos_investigacion = new CVU_API_Catalogo_Tipos_Investigacion(
             $this,
             $this->serviceName,
             'tipos_investigacion',
             array(
                 'methods' => array(
-                    'consultar'		=> array(
-                        'path'		=> '/tipos_investigacion/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'key-index'	=> array(
-                                'location'	=> 'none',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                    'consultar'        => array(
+                        'path'        => '/tipos_investigacion/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array(
+                            'key-index'    => array(
+                                'location'    => 'none',
+                                'type'        => 'boolean',
+                                'required'    => false,
                             )
                         ),
                     ),
-                    'consultarPorId'	=> array(
-                        'path'		=> '/tipos_investigacion/{id}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'id'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string'
+                    'consultarPorId'    => array(
+                        'path'        => '/tipos_investigacion/{id}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array(
+                            'id'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string'
                             )
                         )
                     ),
                 ),
             )
         );
-        $this->areas_conocimiento = new CVU_API_Catalogo_Areas_Conocimiento (
+        $this->areas_conocimiento = new CVU_API_Catalogo_Areas_Conocimiento(
             $this,
             $this->serviceName,
             'areas_conocimiento',
             array(
                 'methods' => array(
-                    'consultar'		=> array(
-                        'path'		=> '/areas_conocimiento/',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'key-index'	=> array(
-                                'location'	=> 'none',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                    'consultar'        => array(
+                        'path'        => '/areas_conocimiento/',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array(
+                            'key-index'    => array(
+                                'location'    => 'none',
+                                'type'        => 'boolean',
+                                'required'    => false,
                             ),
                         ),
                     ),
-                    'consultarPorId'=> array(
-                        'path'		=> '/areas_conocimiento/{id}',
-                        'httpMethod'=> 'GET',
-                        'grant_lvl'	=> TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'id'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string'
+                    'consultarPorId' => array(
+                        'path'        => '/areas_conocimiento/{id}',
+                        'httpMethod' => 'GET',
+                        'grant_lvl'    => TnmApiClient::CLIENT_BASIC,
+                        'parameters' => array(
+                            'id'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string'
                             ),
                         ),
                     ),
                 ),
             )
         );
-        $this->instituciones = new CVU_API_Catalogo_Instituciones (
+        $this->instituciones = new CVU_API_Catalogo_Instituciones(
             $this,
             $this->serviceName,
             'instituciones',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'	=> '/instituciones/',
-                        'httpMethod'=> 'GET',
+                    'consultar'    => array(
+                        'path'    => '/instituciones/',
+                        'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'order-by'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                        'parameters' => array(
+                            'order-by'    => array(
+                                'location'    => 'query',
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'sin-id'	=> array(
+                            'sin-id'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'key-index'	=> array(
-                                'location'	=> 'none',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                            'key-index'    => array(
+                                'location'    => 'none',
+                                'type'        => 'boolean',
+                                'required'    => false,
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'	=> '/instituciones/{id}/',
-                        'httpMethod'=> 'GET',
+                    'consultarPorId'    => array(
+                        'path'    => '/instituciones/{id}/',
+                        'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'id'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true,
+                        'parameters' => array(
+                            'id'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true,
                             )
                         )
                     )
                 )
             )
         );
-        $this->unidades_organicas = new CVU_API_Catalogo_Unidades_Organicas (
+        $this->unidades_organicas = new CVU_API_Catalogo_Unidades_Organicas(
             $this,
             $this->serviceName,
             'unidades_organicas',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'	=> '/unidades_organicas/',
-                        'httpMethod'=> 'GET',
+                    'consultar'    => array(
+                        'path'    => '/unidades_organicas/',
+                        'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'id-institucion'=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                        'parameters' => array(
+                            'id-institucion' => array(
+                                'location'    => 'query',
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'order-by'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                            'order-by'    => array(
+                                'location'    => 'query',
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'sin-id'	=> array(
+                            'sin-id'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'key-index'	=> array(
-                                'location'	=> 'none',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                            'key-index'    => array(
+                                'location'    => 'none',
+                                'type'        => 'boolean',
+                                'required'    => false,
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'	=> '/unidades_organicas/{id}/',
-                        'httpMethod'=> 'GET',
+                    'consultarPorId'    => array(
+                        'path'    => '/unidades_organicas/{id}/',
+                        'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'id'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true,
+                        'parameters' => array(
+                            'id'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true,
                             )
                         )
                     )
                 )
             )
         );
-        $this->puestos = new CVU_API_Catalogo_Puestos (
+        $this->puestos = new CVU_API_Catalogo_Puestos(
             $this,
             $this->serviceName,
             'puestos',
             array(
                 'methods' => array(
-                    'consultar'	=> array(
-                        'path'	=> '/puestos/',
-                        'httpMethod'=> 'GET',
+                    'consultar'    => array(
+                        'path'    => '/puestos/',
+                        'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
+                        'parameters' => array(
                             'id-unidad-organica' => array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                                'location'    => 'query',
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'order-by'	=> array(
-                                'location'	=> 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                            'order-by'    => array(
+                                'location'    => 'query',
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'sin-id'	=> array(
+                            'sin-id'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false
+                                'type'        => 'string',
+                                'required'    => false
                             ),
-                            'key-index'	=> array(
-                                'location'	=> 'none',
-                                'type'		=> 'boolean',
-                                'required'	=> false,
+                            'key-index'    => array(
+                                'location'    => 'none',
+                                'type'        => 'boolean',
+                                'required'    => false,
                             )
                         )
                     ),
-                    'consultarPorId'	=> array(
-                        'path'	=> '/puestos/{id}/',
-                        'httpMethod'=> 'GET',
+                    'consultarPorId'    => array(
+                        'path'    => '/puestos/{id}/',
+                        'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'id'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true,
+                        'parameters' => array(
+                            'id'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true,
                             )
                         )
                     )
                 )
             )
         );
-        $this->clasificador = new CVU_API_Catalogo_Clasificador (
+        $this->clasificador = new CVU_API_Catalogo_Clasificador(
             $this,
             $this->serviceName,
             'clasificador',
             array(
                 'methods' => array(
                     'consultarCapitulos' => array(
-                        'path'	=> '/clasificador/capitulos',
+                        'path'    => '/clasificador/capitulos',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
+                        'parameters' => array(
                             'nest-up-to' => array(
                                 'location' => 'query',
                                 'type' => 'string',
                                 'required' => false,
                             ),
-                            'capitulos'	=> array(
+                            'capitulos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'conceptos'	=> array(
+                            'conceptos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-genericas'	=> array(
+                            'partidas-genericas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-especificas'	=> array(
+                            'partidas-especificas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
                             'key-index' => array(
                                 'location' => 'none',
@@ -266,41 +266,41 @@ class TnmApiCatalogos extends TnmApiServiceBase
                         )
                     ),
                     'consultarCapitulo' => array(
-                        'path'	=> '/clasificador/capitulos/{num}',
+                        'path'    => '/clasificador/capitulos/{num}',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'num'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true
+                        'parameters' => array(
+                            'num'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true
                             ),
                         )
                     ),
                     'consultarConceptos' => array(
-                        'path'	=> '/clasificador/conceptos',
+                        'path'    => '/clasificador/conceptos',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'capitulos'	=> array(
+                        'parameters' => array(
+                            'capitulos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'conceptos'	=> array(
+                            'conceptos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-genericas'	=> array(
+                            'partidas-genericas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-especificas'	=> array(
+                            'partidas-especificas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
                             'key-index' => array(
                                 'location' => 'none',
@@ -310,41 +310,41 @@ class TnmApiCatalogos extends TnmApiServiceBase
                         )
                     ),
                     'consultarConcepto' => array(
-                        'path'	=> '/clasificador/conceptos/{num}',
+                        'path'    => '/clasificador/conceptos/{num}',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'num'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true
+                        'parameters' => array(
+                            'num'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true
                             ),
                         )
                     ),
                     'consultarPartidasGenericas' => array(
-                        'path'	=> '/clasificador/partidas-genericas',
+                        'path'    => '/clasificador/partidas-genericas',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'capitulos'	=> array(
+                        'parameters' => array(
+                            'capitulos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'conceptos'	=> array(
+                            'conceptos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-genericas'	=> array(
+                            'partidas-genericas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-especificas'	=> array(
+                            'partidas-especificas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
                             'key-index' => array(
                                 'location' => 'none',
@@ -354,41 +354,41 @@ class TnmApiCatalogos extends TnmApiServiceBase
                         )
                     ),
                     'consultarPartidaGenerica' => array(
-                        'path'	=> '/clasificador/partidas-genericas/{num}',
+                        'path'    => '/clasificador/partidas-genericas/{num}',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'num'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true
+                        'parameters' => array(
+                            'num'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true
                             ),
                         )
                     ),
                     'consultarPartidasEspecificas' => array(
-                        'path'	=> '/clasificador/partidas-especificas',
+                        'path'    => '/clasificador/partidas-especificas',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'capitulos'	=> array(
+                        'parameters' => array(
+                            'capitulos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'conceptos'	=> array(
+                            'conceptos'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-genericas'	=> array(
+                            'partidas-genericas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
-                            'partidas-especificas'	=> array(
+                            'partidas-especificas'    => array(
                                 'location' => 'query',
-                                'type'		=> 'string',
-                                'required'	=> false,
+                                'type'        => 'string',
+                                'required'    => false,
                             ),
                             'key-index' => array(
                                 'location' => 'none',
@@ -398,36 +398,34 @@ class TnmApiCatalogos extends TnmApiServiceBase
                         )
                     ),
                     'consultarPartidaEspecifica' => array(
-                        'path'	=> '/clasificador/partidas-especificas/{num}',
+                        'path'    => '/clasificador/partidas-especificas/{num}',
                         'httpMethod' => 'GET',
                         'grant_lvl' => TnmApiClient::CLIENT_BASIC,
-                        'parameters'=> array(
-                            'num'	=> array(
-                                'location'	=> 'path',
-                                'type'		=> 'string',
-                                'required'	=> true
+                        'parameters' => array(
+                            'num'    => array(
+                                'location'    => 'path',
+                                'type'        => 'string',
+                                'required'    => true
                             ),
                         )
                     ),
                 )
             )
         );
-
     }
-
 }
 class CVU_API_Catalogo_Tipos_Investigacion extends TnmApiResourceBase
 {
     /**
-     *	Consulta un listado general de los tipos de investigación.
-     *	@param array $optParams Establece flitros para el listado obtenido por
-     *	el catálogo de tipos de investigación.
+     *  Consulta un listado general de los tipos de investigación.
+     *  @param array $optParams Establece flitros para el listado obtenido por
+     *  el catálogo de tipos de investigación.
      */
     public function consultar($id = null, $optParams = array())
     {
         // $params = array('id' => $id);
         $params = $optParams;
-        return $this->call('consultar',array($params), CVU_Tipos_Investigacion::class);
+        return $this->call('consultar', array($params), CVU_Tipos_Investigacion::class);
     }
 
     /**
@@ -437,8 +435,7 @@ class CVU_API_Catalogo_Tipos_Investigacion extends TnmApiResourceBase
     {
         $params = array('id' => $id);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPorId',array($params), CVU_Tipo_Investigacion::class);
-
+        return $this->call('consultarPorId', array($params), CVU_Tipo_Investigacion::class);
     }
 }
 class CVU_Tipos_Investigacion extends TnmApiCollectionBase
@@ -461,7 +458,7 @@ class CVU_API_Catalogo_Areas_Conocimiento extends TnmApiResourceBase
     public function consultar($optParams = array())
     {
         $params = $optParams;
-        $collection = $this->call('consultar',array($params), CVU_Areas_Conocimiento::class);
+        $collection = $this->call('consultar', array($params), CVU_Areas_Conocimiento::class);
         if (isset($params['key-index']) && $params['key-index']) {
             $collection->setKeyAsIndex();
         }
@@ -474,8 +471,8 @@ class CVU_API_Catalogo_Areas_Conocimiento extends TnmApiResourceBase
     public function consultarPorId($id, $optParams = array())
     {
         $params = array('id' => $id);
-        $params = array_merge($params,$optParams);
-        return $this->call('consultarPorId',array($params), CVU_Area_Conocimiento::class);
+        $params = array_merge($params, $optParams);
+        return $this->call('consultarPorId', array($params), CVU_Area_Conocimiento::class);
     }
 }
 class CVU_Areas_Conocimiento extends TnmApiCollectionBase
@@ -498,7 +495,7 @@ class CVU_API_Catalogo_Instituciones extends TnmApiResourceBase
     public function consultar($optParams = array())
     {
         $params = $optParams;
-        $collection = $this->call('consultar',array($params), CVU_Instituciones::class);
+        $collection = $this->call('consultar', array($params), CVU_Instituciones::class);
         if (isset($optParams['key-index']) && $optParams['key-index']) {
             $collection->setKeyAsIndex();
         }
@@ -542,7 +539,7 @@ class CVU_API_Catalogo_Unidades_Organicas extends TnmApiResourceBase
     public function consultar($optParams = array())
     {
         $params = $optParams;
-        $collection = $this->call('consultar',array($params), CVU_Unidades_Organicas::class);
+        $collection = $this->call('consultar', array($params), CVU_Unidades_Organicas::class);
         if (isset($optParams['key-index']) && $optParams['key-index']) {
             $collection->setKeyAsIndex();
         }
@@ -584,7 +581,7 @@ class CVU_API_Catalogo_Puestos extends TnmApiResourceBase
     public function consultar($optParams = array())
     {
         $params = $optParams;
-        $collection = $this->call('consultar',array($params), CVU_Puestos::class);
+        $collection = $this->call('consultar', array($params), CVU_Puestos::class);
         if (isset($optParams['key-index']) && $optParams['key-index']) {
             $collection->setKeyAsIndex();
         }
@@ -595,7 +592,7 @@ class CVU_API_Catalogo_Puestos extends TnmApiResourceBase
         return $this->consultar($optParams);
     }
     /**
-     * @return CVU_Puesto 
+     * @return CVU_Puesto
      */
     public function consultarPorId($id, $optParams = array())
     {
@@ -628,39 +625,39 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
         $params = $optParams;
         if (isset($params['capitulos'])) {
             if (is_array($params['capitulos'])) {
-                $params['capitulos'] = implode(' ',$params['capitulos']);
-            } elseif(is_string($params['capitulos'])) {
+                $params['capitulos'] = implode(' ', $params['capitulos']);
+            } elseif (is_string($params['capitulos'])) {
                 $params['capitulos'] = $params['capitulos'];
             }
         }
         if (isset($params['conceptos'])) {
             if (is_array($params['conceptos'])) {
-                $params['conceptos'] = implode(' ',$params['conceptos']);
-            } elseif(is_string($params['conceptos'])) {
+                $params['conceptos'] = implode(' ', $params['conceptos']);
+            } elseif (is_string($params['conceptos'])) {
                 $params['conceptos'] = $params['conceptos'];
             }
         }
         if (isset($params['partidas-genericas'])) {
             if (is_array($params['partidas-genericas'])) {
-                $params['partidas-genericas'] = implode(' ',$params['partidas-genericas']);
-            } elseif(is_string($params['partidas-genericas'])) {
+                $params['partidas-genericas'] = implode(' ', $params['partidas-genericas']);
+            } elseif (is_string($params['partidas-genericas'])) {
                 $params['partidas-genericas'] = $params['partidas-genericas'];
             }
         }
         if (isset($params['partidas-especificas'])) {
             if (is_array($params['partidas-especificas'])) {
-                $params['partidas-especificas'] = implode(' ',$params['partidas-especificas']);
-            } elseif(is_string($params['partidas-especificas'])) {
+                $params['partidas-especificas'] = implode(' ', $params['partidas-especificas']);
+            } elseif (is_string($params['partidas-especificas'])) {
                 $params['partidas-especificas'] = $params['partidas-especificas'];
             }
         }
-        $collection = $this->call('consultarCapitulos',array($params), CVU_Clasificador_Capitulos::class);
+        $collection = $this->call('consultarCapitulos', array($params), CVU_Clasificador_Capitulos::class);
         if (isset($optParams['key-index']) && $optParams['key-index']) {
             $collection->setKeyAsIndex();
         }
         return $collection;
     }
-    
+
     /**
      * @return CVU_Clasificador_Capitulo
      */
@@ -668,7 +665,7 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
     {
         $params = array('num' => $num);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarCapitulo',array($params), CVU_Clasificador_Capitulo::class);
+        return $this->call('consultarCapitulo', array($params), CVU_Clasificador_Capitulo::class);
     }
 
     /**
@@ -679,33 +676,33 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
         $params = $optParams;
         if (isset($params['capitulos'])) {
             if (is_array($params['capitulos'])) {
-                $params['capitulos'] = implode(' ',$params['capitulos']);
-            } elseif(is_string($params['capitulos'])) {
+                $params['capitulos'] = implode(' ', $params['capitulos']);
+            } elseif (is_string($params['capitulos'])) {
                 $params['capitulos'] = $params['capitulos'];
             }
         }
         if (isset($params['conceptos'])) {
             if (is_array($params['conceptos'])) {
-                $params['conceptos'] = implode(' ',$params['conceptos']);
-            } elseif(is_string($params['conceptos'])) {
+                $params['conceptos'] = implode(' ', $params['conceptos']);
+            } elseif (is_string($params['conceptos'])) {
                 $params['conceptos'] = $params['conceptos'];
             }
         }
         if (isset($params['partidas-genericas'])) {
             if (is_array($params['partidas-genericas'])) {
-                $params['partidas-genericas'] = implode(' ',$params['partidas-genericas']);
-            } elseif(is_string($params['partidas-genericas'])) {
+                $params['partidas-genericas'] = implode(' ', $params['partidas-genericas']);
+            } elseif (is_string($params['partidas-genericas'])) {
                 $params['partidas-genericas'] = $params['partidas-genericas'];
             }
         }
         if (isset($params['partidas-especificas'])) {
             if (is_array($params['partidas-especificas'])) {
-                $params['partidas-especificas'] = implode(' ',$params['partidas-especificas']);
-            } elseif(is_string($params['partidas-especificas'])) {
+                $params['partidas-especificas'] = implode(' ', $params['partidas-especificas']);
+            } elseif (is_string($params['partidas-especificas'])) {
                 $params['partidas-especificas'] = $params['partidas-especificas'];
             }
         }
-        $collection = $this->call('consultarConceptos',array($params), CVU_Clasificador_Conceptos::class);
+        $collection = $this->call('consultarConceptos', array($params), CVU_Clasificador_Conceptos::class);
         if (isset($optParams['key-index']) && $optParams['key-index']) {
             $collection->setKeyAsIndex();
         }
@@ -719,7 +716,7 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
     {
         $params = array('num' => $num);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarConcepto',array($params), CVU_Clasificador_Concepto::class);
+        return $this->call('consultarConcepto', array($params), CVU_Clasificador_Concepto::class);
     }
 
     /**
@@ -730,33 +727,33 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
         $params = $optParams;
         if (isset($params['capitulos'])) {
             if (is_array($params['capitulos'])) {
-                $params['capitulos'] = implode(' ',$params['capitulos']);
-            } elseif(is_string($params['capitulos'])) {
+                $params['capitulos'] = implode(' ', $params['capitulos']);
+            } elseif (is_string($params['capitulos'])) {
                 $params['capitulos'] = $params['capitulos'];
             }
         }
         if (isset($params['conceptos'])) {
             if (is_array($params['conceptos'])) {
-                $params['conceptos'] = implode(' ',$params['conceptos']);
-            } elseif(is_string($params['conceptos'])) {
+                $params['conceptos'] = implode(' ', $params['conceptos']);
+            } elseif (is_string($params['conceptos'])) {
                 $params['conceptos'] = $params['conceptos'];
             }
         }
         if (isset($params['partidas-genericas'])) {
             if (is_array($params['partidas-genericas'])) {
-                $params['partidas-genericas'] = implode(' ',$params['partidas-genericas']);
-            } elseif(is_string($params['partidas-genericas'])) {
+                $params['partidas-genericas'] = implode(' ', $params['partidas-genericas']);
+            } elseif (is_string($params['partidas-genericas'])) {
                 $params['partidas-genericas'] = $params['partidas-genericas'];
             }
         }
         if (isset($params['partidas-especificas'])) {
             if (is_array($params['partidas-especificas'])) {
-                $params['partidas-especificas'] = implode(' ',$params['partidas-especificas']);
-            } elseif(is_string($params['partidas-especificas'])) {
+                $params['partidas-especificas'] = implode(' ', $params['partidas-especificas']);
+            } elseif (is_string($params['partidas-especificas'])) {
                 $params['partidas-especificas'] = $params['partidas-especificas'];
             }
         }
-        $collection = $this->call('consultarPartidasGenericas',array($params), CVU_Clasificador_Partidas_Genericas::class);
+        $collection = $this->call('consultarPartidasGenericas', array($params), CVU_Clasificador_Partidas_Genericas::class);
         if (isset($optParams['key-index']) && $optParams['key-index']) {
             $collection->setKeyAsIndex();
         }
@@ -770,7 +767,7 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
     {
         $params = array('num' => $num);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPartidaGenerica',array($params), CVU_Clasificador_Partida_Generica::class);
+        return $this->call('consultarPartidaGenerica', array($params), CVU_Clasificador_Partida_Generica::class);
     }
 
     /**
@@ -781,33 +778,33 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
         $params = $optParams;
         if (isset($params['capitulos'])) {
             if (is_array($params['capitulos'])) {
-                $params['capitulos'] = implode(' ',$params['capitulos']);
-            } elseif(is_string($params['capitulos'])) {
+                $params['capitulos'] = implode(' ', $params['capitulos']);
+            } elseif (is_string($params['capitulos'])) {
                 $params['capitulos'] = $params['capitulos'];
             }
         }
         if (isset($params['conceptos'])) {
             if (is_array($params['conceptos'])) {
-                $params['conceptos'] = implode(' ',$params['conceptos']);
-            } elseif(is_string($params['conceptos'])) {
+                $params['conceptos'] = implode(' ', $params['conceptos']);
+            } elseif (is_string($params['conceptos'])) {
                 $params['conceptos'] = $params['conceptos'];
             }
         }
         if (isset($params['partidas-genericas'])) {
             if (is_array($params['partidas-genericas'])) {
-                $params['partidas-genericas'] = implode(' ',$params['partidas-genericas']);
-            } elseif(is_string($params['partidas-genericas'])) {
+                $params['partidas-genericas'] = implode(' ', $params['partidas-genericas']);
+            } elseif (is_string($params['partidas-genericas'])) {
                 $params['partidas-genericas'] = $params['partidas-genericas'];
             }
         }
         if (isset($params['partidas-especificas'])) {
             if (is_array($params['partidas-especificas'])) {
-                $params['partidas-especificas'] = implode(' ',$params['partidas-especificas']);
-            } elseif(is_string($params['partidas-especificas'])) {
+                $params['partidas-especificas'] = implode(' ', $params['partidas-especificas']);
+            } elseif (is_string($params['partidas-especificas'])) {
                 $params['partidas-especificas'] = $params['partidas-especificas'];
             }
         }
-        $collection = $this->call('consultarPartidasEspecificas',array($params), CVU_Clasificador_Partidas_Especificas::class);
+        $collection = $this->call('consultarPartidasEspecificas', array($params), CVU_Clasificador_Partidas_Especificas::class);
         if (isset($optParams['key-index']) && $optParams['key-index']) {
             $collection->setKeyAsIndex();
         }
@@ -820,12 +817,11 @@ class CVU_API_Catalogo_Clasificador extends TnmApiResourceBase
     {
         $params = array('num' => $num);
         $params = array_merge($params, $optParams);
-        return $this->call('consultarPartidaEspecifica',array($params),CVU_Clasificador_Partida_Especifica::class);
+        return $this->call('consultarPartidaEspecifica', array($params), CVU_Clasificador_Partida_Especifica::class);
     }
 }
 class CvuClasificadorModelBase extends TnmApiModelBase
 {
-
 }
 class CVU_Clasificador_Capitulos extends TnmApiCollectionBase
 {
@@ -869,5 +865,4 @@ class CVU_Clasificador_Partidas_Especificas extends TnmApiCollectionBase
 }
 class CVU_Clasificador_Partida_Especifica extends CvuClasificadorModelBase
 {
-
 }
