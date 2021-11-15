@@ -2,33 +2,29 @@
 
 namespace TecNM_DPII\CVU_API_Client;
 
+/**
+ * @property-read TnmCvuApiHub $cvu
+ * @property-read TnmApiAcademica $academica
+ * @property-read TnmApiCatalogos $catalogos
+ * @property-read TnmApiAplicacion $aplicacion
+ */
 class TnmApiClient
 {
-    const USER_AGENT_SUFFIX = 'tnm-api-php-client';
-    // const OAUTH2_REVOKE_URI = 'https://betas.acad-tecnm.mx/cvu/oauth2/revoke';
-    // const OAUTH2_TOKEN_URI	= 'https://betas.acad-tecnm.mx/cvu/oauth2/token';
-    // const OAUTH2_AUTH_URL	= 'https://betas.acad-tecnm.mx/cvu/oauth2';
-    // const API_BASE_PATH		= 'https://betas.acad-tecnm.mx/cvu_api_v2';
+    public const USER_AGENT_SUFFIX = 'tnm-api-php-client';
 
-    // const OAUTH2_REVOKE_URI = 'https://cvu.acad-tecnm.mx/oauth2/revoke';
-    // const OAUTH2_TOKEN_URI	= 'https://cvu.acad-tecnm.mx/oauth2/token';
-    // const OAUTH2_AUTH_URL	= 'https://cvu.acad-tecnm.mx/oauth2';
-    // const API_BASE_PATH		= 'https://api.cvu.acad-tecnm.mx';
+    public const OAUTH2_REVOKE_URI = 'https://cvu.dpii.tecnm.mx/index.php/oauth2/revoke';
+    public const OAUTH2_TOKEN_URI  = 'https://cvu.dpii.tecnm.mx/index.php/oauth2/token';
+    public const OAUTH2_AUTH_URL   = 'https://cvu.dpii.tecnm.mx/index.php/oauth2';
+    public const API_BASE_PATH     = 'https://cvu.dpii.tecnm.mx/api/index.php';
 
-    const OAUTH2_REVOKE_URI = 'https://cvu.dpii.tecnm.mx/index.php/oauth2/revoke';
-    const OAUTH2_TOKEN_URI    = 'https://cvu.dpii.tecnm.mx/index.php/oauth2/token';
-    const OAUTH2_AUTH_URL    = 'https://cvu.dpii.tecnm.mx/index.php/oauth2';
-    const API_BASE_PATH        = 'https://cvu.dpii.tecnm.mx/api/index.php';
-    // const API_BASE_PATH		= 'https://api.cvu.dpii.tecnm.mx';
+    public const CLIENT_BASIC           = 'ClientID';
+    public const CLIENT_CONFIDENTIAL    = 'Client Confidential';
+    public const OWNER_ACCESS           = 'Owner Access';
 
-    // const OAUTH2_REVOKE_URI	= 'http://localhost/tecnm/cvu/oauth2/revoke/';
-    // const OAUTH2_TOKEN_URI	= 'http://localhost/tecnm/cvu/oauth2/token/';
-    // const OAUTH2_AUTH_URL	= 'http://localhost/tecnm/cvu/oauth2/';
-    // const API_BASE_PATH		= 'http://localhost/tecnm/cvu_api_v2';
-
-    const CLIENT_BASIC            = 'ClientID';
-    const CLIENT_CONFIDENTIAL    = 'Client Confidential';
-    const OWNER_ACCESS            = 'Owner Access';
+    private $oauth2AuthUrl = self::OAUTH2_AUTH_URL;
+    private $oauth2TokenUrl = self::OAUTH2_TOKEN_URI;
+    private $oauth2RevokeUrl = self::OAUTH2_REVOKE_URI;
+    private $oauth2ResourceUrl = self::API_BASE_PATH;
 
     private $config;
 
@@ -93,12 +89,23 @@ class TnmApiClient
         if (array_key_exists('TECNM_CVU_API_CALLBACK_URI', $_ENV)) {
             $this->setRedirectUri($_ENV['TECNM_CVU_API_CALLBACK_URI']);
         }
+        if (array_key_exists('TECNM_CVU_API_AUTHORIZE_URI', $_ENV)) {
+            $this->oauth2AuthUrl = $_ENV['TECNM_CVU_API_AUTHORIZE_URI'];
+        }
+        if (array_key_exists('TECNM_CVU_API_TOKEN_URI', $_ENV)) {
+            $this->oauth2TokenUrl = $_ENV['TECNM_CVU_API_TOKEN_URI'];
+        }
+        if (array_key_exists('TECNM_CVU_API_RESOURCE_URI', $_ENV)) {
+            $this->oauth2ResourceUrl = $_ENV['TECNM_CVU_API_RESOURCE_URI'];
+        }
     }
     public function setAuthConfig($config)
     {
         if (is_string($config)) {
             if (!file_exists($config)) {
-                throw new \Exception("El archivo de configuración de la API de TecNM no existe en la ruta '{$config}'.");
+                throw new \Exception(
+                    "El archivo de configuración de la API de TecNM no existe en la ruta '{$config}'."
+                );
             }
             $json = file_get_contents($config);
 
@@ -122,7 +129,7 @@ class TnmApiClient
     {
         if (is_string($scope_or_scopes) && !in_array($scope_or_scopes, $this->requestedScopes)) {
             $this->requestedScopes[] = $scope_or_scopes;
-        } else if (is_array($scope_or_scopes)) {
+        } elseif (is_array($scope_or_scopes)) {
             foreach ($scope_or_scopes as $scope) {
                 $this->addScope($scope);
             }
@@ -184,13 +191,17 @@ class TnmApiClient
     {
         return $this->config['state'];
     }
+    public function getResourceUrl()
+    {
+        return $this->oauth2ResourceUrl;
+    }
     public function setAccessType($access_type)
     {
         return $this;
     }
     public function createAuthUrl()
     {
-        $authUrl = self::OAUTH2_AUTH_URL;
+        $authUrl = $this->oauth2AuthUrl;
         $parameters['client_id'] = $this->getClientId();
         $parameters['response_type'] = 'code';
         if ($redirect_uri = $this->getRedirectUri()) {
@@ -216,7 +227,7 @@ class TnmApiClient
         if (strlen($code) == 0) {
             throw new \Exception("Invalid code");
         }
-        $request = new HttpRequestHelper(self::OAUTH2_TOKEN_URI);
+        $request = new HttpRequestHelper($this->oauth2TokenUrl);
         $request->setMethod(HttpRequestHelper::METHOD_POST);
         $request->setBodyVar('client_id', $this->getClientId());
         $request->setBodyVar('client_secret', $this->getClientSecret());
@@ -238,7 +249,7 @@ class TnmApiClient
             }
             $refreshToken = $this->token['refreshToken'];
         }
-        $request = new HttpRequestHelper(self::OAUTH2_TOKEN_URI);
+        $request = new HttpRequestHelper($this->oauth2TokenUrl);
         $request->setMethod(HttpRequestHelper::METHOD_POST);
         $request->setBodyVar('grant_type', 'refresh_token');
         $request->setBodyVar('client_id', $this->getClientId());
@@ -263,8 +274,8 @@ class TnmApiClient
             [
                 'clientId'            => $this->getClientId(),
                 'clientSecret'        => $this->getClientSecret(),
-                'authorizationUrl'    => self::OAUTH2_AUTH_URL,
-                'tokenCredentialUri' => self::OAUTH2_TOKEN_URI,
+                'authorizationUrl'    => $this->oauth2AuthUrl,
+                'tokenCredentialUri' => $this->oauth2TokenUrl,
                 'redirectUri'        => $this->getRedirectUri(),
                 'issuer'            => $this->config['client_id']
             ]

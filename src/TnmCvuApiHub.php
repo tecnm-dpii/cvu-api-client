@@ -2,6 +2,16 @@
 
 namespace TecNM_DPII\CVU_API_Client;
 
+/**
+ * @property-read TnmCvuApiPerfil $perfil
+ * @property-read TnmCvuApiDatosLaborales $datos_laborales
+ * @property-read TnmCvuApiFormacionAcademica $formacion
+ * @property-read TnmCvuApiFormacionAcademica $formacion_academica
+ * @property-read TnmCvuApiProductividad $productividad
+ * @property-read TnmCvuApiDistinciones $distinciones
+ * @property-read TnmCvuApiConacyt $conacyt
+ * @property-read TnmCvuApiProdep $prodep
+ */
 class TnmCvuApiHub extends TnmApiServiceBase
 {
     private $client;
@@ -13,7 +23,7 @@ class TnmCvuApiHub extends TnmApiServiceBase
     {
         parent::__construct($client);
         $this->client = $client;
-        $this->rootUrl = $client::API_BASE_PATH;
+        $this->rootUrl = $client->getResourceUrl();
         $this->servicePath = "";
         $this->serviceName = 'cvu-tecnm';
 

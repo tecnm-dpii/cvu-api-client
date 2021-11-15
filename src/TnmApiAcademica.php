@@ -13,7 +13,7 @@ class TnmApiAcademica extends TnmApiServiceBase
     public function __construct(TnmApiClient $client)
     {
         parent::__construct($client);
-        $this->rootUrl = $client::API_BASE_PATH;
+        $this->rootUrl = $client->getResourceUrl();
         $this->servicePath = '/academica/';
         $this->serviceName = 'academica';
 
